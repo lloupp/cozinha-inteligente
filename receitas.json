@@ -1,0 +1,2775 @@
+{
+  "receitas": [
+    {
+      "id": 1,
+      "nome": "Omelete de queijo",
+      "ingredientes": [
+        "ovo",
+        "queijo",
+        "sal",
+        "oleo",
+        "cebola"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem lactose",
+        "proteico",
+        "economico"
+      ],
+      "modo": "Bata os ovos, tempere e leve à frigideira com o queijo e a cebola. Vire e sirva."
+    },
+    {
+      "id": 2,
+      "nome": "Arroz de forno",
+      "ingredientes": [
+        "arroz",
+        "queijo",
+        "leite",
+        "ovo",
+        "cebola",
+        "molho de tomate"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Cozinhe o arroz, misture com molho, leite, ovos e queijo. Leve ao forno até gratinar."
+    },
+    {
+      "id": 3,
+      "nome": "Shakshuka",
+      "ingredientes": [
+        "ovo",
+        "tomate",
+        "cebola",
+        "alho",
+        "pimenta",
+        "oleo"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "proteico",
+        "economico"
+      ],
+      "modo": "Refogue cebola, alho, tomate e pimenta. Faça covinhas, quebre os ovos e tampe até cozinhar."
+    },
+    {
+      "id": 4,
+      "nome": "Arroz com legumes",
+      "ingredientes": [
+        "arroz",
+        "cenoura",
+        "cebola",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Refogue cebola e cenoura, acrescente o arroz e a água. Cozinhe até ficar macio."
+    },
+    {
+      "id": 5,
+      "nome": "Bolo de banana",
+      "ingredientes": [
+        "banana",
+        "ovo",
+        "acucar",
+        "farinha de trigo",
+        "leite",
+        "oleo",
+        "fermento"
+      ],
+      "tempo_min": 45,
+      "dificuldade": "facil",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Amasse as bananas, misture os ingredientes úmidos, junte a farinha e o fermento. Asse a 180°C."
+    },
+    {
+      "id": 6,
+      "nome": "Panqueca de banana",
+      "ingredientes": [
+        "banana",
+        "ovo",
+        "fermento",
+        "oleo"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Amasse a banana com ovo e fermento. Frite pequenas porções na frigideira."
+    },
+    {
+      "id": 7,
+      "nome": "Vitamina de banana",
+      "ingredientes": [
+        "banana",
+        "leite"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "proteico",
+        "economico"
+      ],
+      "modo": "Bata a banana com o leite no liquidificador. Sirva gelado."
+    },
+    {
+      "id": 8,
+      "nome": "Sorvete de banana",
+      "ingredientes": [
+        "banana"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Congele bananas maduras e bata até virar creme. Sirva na hora."
+    },
+    {
+      "id": 9,
+      "nome": "Lasanha de carne",
+      "ingredientes": [
+        "massa de lasanha",
+        "molho de tomate",
+        "carne moida",
+        "queijo",
+        "presunto",
+        "creme de leite"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "chef",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Monte camadas de massa, molho com carne, presunto, queijo e creme. Leve ao forno."
+    },
+    {
+      "id": 10,
+      "nome": "Macarrao com molho",
+      "ingredientes": [
+        "macarrao",
+        "molho de tomate",
+        "cebola",
+        "alho",
+        "oleo",
+        "queijo"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "economico"
+      ],
+      "modo": "Cozinhe o macarrao. Refogue alho e cebola, acrescente o molho. Misture e finalize com queijo."
+    },
+    {
+      "id": 11,
+      "nome": "Peito de frango grelhado",
+      "ingredientes": [
+        "peito de frango",
+        "alho",
+        "limao",
+        "sal",
+        "oleo"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "low carb",
+        "proteico",
+        "sem gluten"
+      ],
+      "modo": "Tempere o frango com alho, limao e sal. Grelhe em frigideira quente."
+    },
+    {
+      "id": 12,
+      "nome": "Frango com arroz",
+      "ingredientes": [
+        "peito de frango",
+        "arroz",
+        "cebola",
+        "alho",
+        "oleo"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Doure o frango com alho e cebola, reserve. Na mesma panela faça o arroz."
+    },
+    {
+      "id": 13,
+      "nome": "Batata sauteada",
+      "ingredientes": [
+        "batata",
+        "cebola",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Cozinhe a batata, frite com cebola e sal até dourar."
+    },
+    {
+      "id": 14,
+      "nome": "Salada de alface",
+      "ingredientes": [
+        "alface",
+        "tomate",
+        "cebola",
+        "limao",
+        "sal",
+        "oleo"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "low carb",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Pique os vegetais, tempere com limao, sal e oleo."
+    },
+    {
+      "id": 15,
+      "nome": "Tapioca recheada",
+      "ingredientes": [
+        "tapioca",
+        "queijo",
+        "ovo"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem gluten",
+        "proteico",
+        "economico"
+      ],
+      "modo": "Espalhe a tapioca na frigideira, recheie com queijo e ovo, dobre e sirva."
+    },
+    {
+      "id": 16,
+      "nome": "Pao de queijo",
+      "ingredientes": [
+        "polvilho",
+        "queijo",
+        "leite",
+        "ovo",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 35,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Misture o polvilho com o leite quente, oleo e sal. Junte queijo e ovos. Assa a 200°C."
+    },
+    {
+      "id": 17,
+      "nome": "Crepioca",
+      "ingredientes": [
+        "tapioca",
+        "ovo",
+        "queijo"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem gluten",
+        "proteico",
+        "economico"
+      ],
+      "modo": "Bata o ovo, misture à tapioca. Leve à frigideira, recheie com queijo."
+    },
+    {
+      "id": 18,
+      "nome": "Sopa de cenoura",
+      "ingredientes": [
+        "cenoura",
+        "cebola",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Cozinhe a cenoura com cebola e alho, bata no liquidificador e tempere."
+    },
+    {
+      "id": 19,
+      "nome": "Bife acebolado",
+      "ingredientes": [
+        "carne moida",
+        "cebola",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "low carb",
+        "proteico",
+        "sem gluten"
+      ],
+      "modo": "Tempere a carne, frite e refogue cebola por cima."
+    },
+    {
+      "id": 20,
+      "nome": "Arroz carreteiro",
+      "ingredientes": [
+        "arroz",
+        "carne moida",
+        "cebola",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 35,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Frite a carne com alho e cebola, acrescente o arroz e a água. Cozinhe."
+    },
+    {
+      "id": 21,
+      "nome": "Ovos mexidos",
+      "ingredientes": [
+        "ovo",
+        "leite",
+        "sal",
+        "oleo"
+      ],
+      "tempo_min": 8,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem lactose",
+        "proteico",
+        "economico"
+      ],
+      "modo": "Bata os ovos com leite e sal, leve à frigideira mexendo sempre."
+    },
+    {
+      "id": 22,
+      "nome": "Torta de frango",
+      "ingredientes": [
+        "peito de frango",
+        "ovo",
+        "leite",
+        "farinha de trigo",
+        "queijo",
+        "oleo",
+        "fermento"
+      ],
+      "tempo_min": 45,
+      "dificuldade": "media",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Cozinhe e desfie o frango. Bata a massa líquida, misture o frango e o queijo. Asse."
+    },
+    {
+      "id": 23,
+      "nome": "Purê de batata",
+      "ingredientes": [
+        "batata",
+        "leite",
+        "manteiga",
+        "sal"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Cozinhe e amasse a batata, misture com leite e manteiga quentes."
+    },
+    {
+      "id": 24,
+      "nome": "Cenoura caramelizada",
+      "ingredientes": [
+        "cenoura",
+        "acucar",
+        "manteiga",
+        "sal"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Cozinhe a cenoura, refogue na manteiga com acucar até caramelizar."
+    },
+    {
+      "id": 25,
+      "nome": "Refogado de alho e oleo (macarrao)",
+      "ingredientes": [
+        "macarrao",
+        "alho",
+        "oleo",
+        "sal",
+        "queijo"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "economico"
+      ],
+      "modo": "Cozinhe o macarrao. Doure o alho no oleo e misture. Finalize com queijo."
+    },
+    {
+      "id": 26,
+      "nome": "Queijo quente",
+      "ingredientes": [
+        "pao",
+        "queijo",
+        "manteiga"
+      ],
+      "tempo_min": 8,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Passe manteiga no pao, recheie com queijo e leve à frigideira ou air fryer."
+    },
+    {
+      "id": 27,
+      "nome": "Omelete de espinafre",
+      "ingredientes": [
+        "ovo",
+        "espinafre",
+        "queijo",
+        "sal",
+        "oleo"
+      ],
+      "tempo_min": 12,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "low carb",
+        "proteico",
+        "economico"
+      ],
+      "modo": "Refogue o espinafre, misture aos ovos batidos com queijo e leve à frigideira."
+    },
+    {
+      "id": 28,
+      "nome": "Arroz de brócolis",
+      "ingredientes": [
+        "arroz",
+        "brocolis",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Refogue o alho, acrescente o brócolis, junte o arroz cozido e misture."
+    },
+    {
+      "id": 29,
+      "nome": "Frango ao curry",
+      "ingredientes": [
+        "peito de frango",
+        "cebola",
+        "alho",
+        "leite de coco",
+        "curry",
+        "oleo"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Doure o frango com cebola e alho, acrescente o curry e o leite de coco. Cozinhe."
+    },
+    {
+      "id": 30,
+      "nome": "Pudim de leite",
+      "ingredientes": [
+        "leite",
+        "ovo",
+        "acucar"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Faça a calda de acucar, bata o leite com ovos e asse em banho-maria."
+    },
+    {
+      "id": 31,
+      "nome": "Cuscuz paulista",
+      "ingredientes": [
+        "farinha de trigo",
+        "molho de tomate",
+        "ovo",
+        "presunto",
+        "queijo",
+        "cebola"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "media",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Hidrate a farinha com molho quente, misture os demais e leve ao vapor."
+    },
+    {
+      "id": 32,
+      "nome": "Salada de frango",
+      "ingredientes": [
+        "peito de frango",
+        "alface",
+        "tomate",
+        "limao",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "low carb",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Cozinhe e desfie o frango, misture com a salada e tempere."
+    },
+    {
+      "id": 33,
+      "nome": "Bolinho de arroz",
+      "ingredientes": [
+        "arroz",
+        "ovo",
+        "queijo",
+        "farinha de trigo",
+        "oleo"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Misture o arroz frio com ovo e queijo, enrole, passe na farinha e frite."
+    },
+    {
+      "id": 34,
+      "nome": "Vitamina verde",
+      "ingredientes": [
+        "leite",
+        "espinafre",
+        "banana"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "proteico",
+        "economico"
+      ],
+      "modo": "Bata o leite com espinafre e banana no liquidificador."
+    },
+    {
+      "id": 35,
+      "nome": "Risoto de cenoura",
+      "ingredientes": [
+        "arroz",
+        "cenoura",
+        "cebola",
+        "alho",
+        "queijo",
+        "oleo"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "proteico"
+      ],
+      "modo": "Refogue a cenoura com arroz, adicione caldo aos poucos e finalize com queijo."
+    },
+    {
+      "id": 36,
+      "nome": "Tapioca doce",
+      "ingredientes": [
+        "tapioca",
+        "banana",
+        "leite"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Espalhe a tapioca, recheie com banana amassada e regue com leite."
+    },
+    {
+      "id": 37,
+      "nome": "Feijão tropeiro",
+      "ingredientes": [
+        "feijao",
+        "ovo",
+        "oleo",
+        "alho",
+        "cebola",
+        "farinha de trigo",
+        "sal"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "proteico",
+        "economico"
+      ],
+      "modo": "Cozinhe o feijao. Refogue alho e cebola, junte o feijao cozido, ovos mexidos e farinha. Misture bem."
+    },
+    {
+      "id": 38,
+      "nome": "Caldo verde",
+      "ingredientes": [
+        "batata",
+        "cebola",
+        "alho",
+        "oleo",
+        "sal",
+        "acucar"
+      ],
+      "tempo_min": 35,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Cozinhe batata e cebola, bata no liquidificador. Tempere e sirva quente."
+    },
+    {
+      "id": 39,
+      "nome": "Pão na chapa com manteiga",
+      "ingredientes": [
+        "pao",
+        "manteiga"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegano",
+        "economico"
+      ],
+      "modo": "Passe manteiga no pão e leve à frigideira ou chapa até dourar."
+    },
+    {
+      "id": 40,
+      "nome": "Strogonoff de frango",
+      "ingredientes": [
+        "peito de frango",
+        "cebola",
+        "alho",
+        "creme de leite",
+        "molho de tomate",
+        "oleo"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Doure o frango com alho e cebola, acrescente molho de tomate e creme de leite. Cozinhe até engrossar."
+    },
+    {
+      "id": 41,
+      "nome": "Mingau de aveia",
+      "ingredientes": [
+        "leite",
+        "acucar"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Ferva o leite com acucar mexendo sempre até engrossar."
+    },
+    {
+      "id": 42,
+      "nome": "Maionese de batata",
+      "ingredientes": [
+        "batata",
+        "cenoura",
+        "ovo",
+        "limao",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Cozinhe batata, cenoura e ovo. Pique tudo, tempere com limao, oleo e sal."
+    },
+    {
+      "id": 43,
+      "nome": "Café com leite",
+      "ingredientes": [
+        "leite"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "economico"
+      ],
+      "modo": "Aqueça o leite e sirva puro. Se tiver café, adicione a gosto."
+    },
+    {
+      "id": 44,
+      "nome": "Farofa de ovo",
+      "ingredientes": [
+        "ovo",
+        "farinha de trigo",
+        "cebola",
+        "manteiga",
+        "sal"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem lactose",
+        "economico"
+      ],
+      "modo": "Frite a manteiga com cebola, junte os ovos mexidos e a farinha. Misture até dourar."
+    },
+    {
+      "id": 45,
+      "nome": "Doce de leite caseiro",
+      "ingredientes": [
+        "leite",
+        "acucar"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Ferva o leite com acucar mexendo sempre até engrossar e dourar."
+    },
+    {
+      "id": 46,
+      "nome": "Brigadeiro",
+      "ingredientes": [
+        "leite",
+        "acucar",
+        "manteiga"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Misture o leite condensado caseiro com manteiga e acucar, cozinhe mexendo até desgrudar do fundo."
+    },
+    {
+      "id": 47,
+      "nome": "Pudim de leite condensado",
+      "ingredientes": [
+        "leite condensado",
+        "leite",
+        "ovo",
+        "acucar"
+      ],
+      "tempo_min": 70,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Faca a calda de acucar e forre a forma. Bata leite condensado, leite e ovos no liquidificador, despeje e asse em banho-maria por 60 minutos."
+    },
+    {
+      "id": 48,
+      "nome": "Manjar de coco",
+      "ingredientes": [
+        "leite",
+        "leite condensado",
+        "coco",
+        "amido de milho"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Leve ao fogo leite, leite condensado, coco ralado e amido dissolvido. Mexa ate engrossar, despeje na forma e leve a geladeira."
+    },
+    {
+      "id": 49,
+      "nome": "Cocada",
+      "ingredientes": [
+        "coco",
+        "acucar",
+        "leite"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegano",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Misture coco, acucar e um fio de leite em panela. Cozinhe mexendo ate comecar a desgrudar do fundo. Deixe esfriar e modele."
+    },
+    {
+      "id": 50,
+      "nome": "Quindim",
+      "ingredientes": [
+        "ovo",
+        "acucar",
+        "coco",
+        "manteiga"
+      ],
+      "tempo_min": 50,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten"
+      ],
+      "modo": "Bata gemas, acucar e coco. Unte as forminhas com manteiga, despeje a mistura e asse em banho-maria ate firmar. Desenforme morno."
+    },
+    {
+      "id": 51,
+      "nome": "Mousse de maracuja",
+      "ingredientes": [
+        "maracuja",
+        "leite condensado",
+        "creme de leite"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem gluten"
+      ],
+      "modo": "Bata o suco de maracuja com leite condensado e creme de leite. Despeje em tacas e leve a geladeira por 2 horas."
+    },
+    {
+      "id": 52,
+      "nome": "Bolo de cenoura com cobertura",
+      "ingredientes": [
+        "cenoura",
+        "farinha de trigo",
+        "acucar",
+        "oleo",
+        "ovo",
+        "fermento",
+        "chocolate",
+        "manteiga",
+        "leite"
+      ],
+      "tempo_min": 50,
+      "dificuldade": "facil",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Bata cenoura com oleo, ovos e acucar. Junte farinha e fermento, asse a 180C. Faca cobertura de chocolate com manteiga, leite e acucar e espalhe sobre o bolo quente."
+    },
+    {
+      "id": 53,
+      "nome": "Bolo vulcao",
+      "ingredientes": [
+        "chocolate",
+        "manteiga",
+        "ovo",
+        "acucar",
+        "farinha de trigo"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "media",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Derreta chocolate com manteiga. Bata ovos e acucar, misture a farinha e o chocolate. Despeje em forminhas e asse por 12 minutos. O centro fica cremoso."
+    },
+    {
+      "id": 54,
+      "nome": "Pave de chocolate",
+      "ingredientes": [
+        "biscoito",
+        "chocolate",
+        "leite condensado",
+        "creme de leite",
+        "leite"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Umedeca os biscoitos no leite e forre o fundo. Cubra com creme de leite condensado com chocolate derretido. Repita as camadas e leve a geladeira por 3 horas."
+    },
+    {
+      "id": 55,
+      "nome": "Torta de limao",
+      "ingredientes": [
+        "biscoito",
+        "manteiga",
+        "leite condensado",
+        "limao"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Triture o biscoito com manteiga e forre a forma. Sobre isso espalhe leite condensado e cubra com suco de limao batido com creme de leite. Leve a geladeira."
+    },
+    {
+      "id": 56,
+      "nome": "Romeu e Julieta",
+      "ingredientes": [
+        "goiabada",
+        "queijo"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Corte a goiabada em fatias e sirva com queijo de minas em cubos. Combina quente ou gelado."
+    },
+    {
+      "id": 57,
+      "nome": "Costela assada",
+      "ingredientes": [
+        "costela",
+        "sal",
+        "alho",
+        "cebola",
+        "oleo"
+      ],
+      "tempo_min": 240,
+      "dificuldade": "chef",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Tempere a costela com sal, alho e cebola. Cubra com papel aluminio e asse a 150C por 4 horas. Finalize dourando sem o papel."
+    },
+    {
+      "id": 58,
+      "nome": "Figado acebolado",
+      "ingredientes": [
+        "figado",
+        "cebola",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "low carb",
+        "sem gluten",
+        "proteico",
+        "economico"
+      ],
+      "modo": "Corte o figado em cubos e deixe de molho em agua com limao. Escorra, frite no oleo com alho e finalize com cebola dourada."
+    },
+    {
+      "id": 59,
+      "nome": "Carne de panela",
+      "ingredientes": [
+        "carne",
+        "cebola",
+        "alho",
+        "tomate",
+        "batata",
+        "cenoura",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 90,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Doure a carne em cubos com alho e cebola. Junte tomate, batata e cenoura, cubra com agua e cozinhe em panela tampada ate a carne ficar macia."
+    },
+    {
+      "id": 60,
+      "nome": "Almondegas",
+      "ingredientes": [
+        "carne moida",
+        "ovo",
+        "farinha de trigo",
+        "cebola",
+        "alho",
+        "molho de tomate",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Misture carne moida, ovo, farinha, cebola e alho. Modele bolinhas e frite. Finalize no molho de tomate fervendo por 10 minutos."
+    },
+    {
+      "id": 61,
+      "nome": "Escondidinho de carne",
+      "ingredientes": [
+        "carne moida",
+        "cebola",
+        "alho",
+        "mandioca",
+        "leite",
+        "manteiga",
+        "queijo",
+        "oleo"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "media",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Cozinhe e amasse a mandioca com leite e manteiga. Refogue a carne com cebola e alho. Monte camadas de pure e carne, polvilhe queijo e gratine."
+    },
+    {
+      "id": 62,
+      "nome": "Picadinho",
+      "ingredientes": [
+        "carne",
+        "cebola",
+        "alho",
+        "tomate",
+        "batata",
+        "cenoura",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Doure a carne em cubinhos com alho e cebola. Junte tomate, batata e cenoura, cubra com agua e cozinhe ate o caldo reduzir."
+    },
+    {
+      "id": 63,
+      "nome": "Lasanha de frango",
+      "ingredientes": [
+        "massa de lasanha",
+        "peito de frango",
+        "molho de tomate",
+        "creme de leite",
+        "queijo",
+        "cebola",
+        "alho",
+        "oleo"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "media",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Cozinhe e desfie o frango refogado com cebola e alho no molho. Monte camadas de massa, frango, creme de leite e queijo. Asse ate gratinar."
+    },
+    {
+      "id": 64,
+      "nome": "Macarrao a carbonara",
+      "ingredientes": [
+        "macarrao",
+        "bacon",
+        "ovo",
+        "queijo",
+        "sal"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Cozinhe o macarrao. Frite o bacon picado. Misture ovos batidos com queijo e junte ao macarrao quente com o bacon. Sirva imediato."
+    },
+    {
+      "id": 65,
+      "nome": "Macarrao a bolonhesa",
+      "ingredientes": [
+        "macarrao",
+        "carne moida",
+        "molho de tomate",
+        "cebola",
+        "alho",
+        "oleo",
+        "queijo"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "facil",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Cozinhe o macarrao. Refogue cebola e alho, frite a carne moida, junte o molho de tomate e cozinhe 15 minutos. Misture ao macarrao e polvilhe queijo."
+    },
+    {
+      "id": 66,
+      "nome": "Nhoque ao molho",
+      "ingredientes": [
+        "batata",
+        "farinha de trigo",
+        "ovo",
+        "sal",
+        "molho de tomate",
+        "oleo"
+      ],
+      "tempo_min": 50,
+      "dificuldade": "media",
+      "dietas": [
+        "economico"
+      ],
+      "modo": "Cozinhe e amasse a batata ainda quente. Misture farinha, ovo e sal ate formar massa. Role cordoes, corte e cozinhe em agua fervente. Sirva com molho de tomate."
+    },
+    {
+      "id": 67,
+      "nome": "Tilapia grelhada",
+      "ingredientes": [
+        "tilapia",
+        "limao",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "low carb",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Tempere a tilapia com limao, alho e sal. Grelhe em frigideira antiaderente com fio de oleo ate dourar dos dois lados."
+    },
+    {
+      "id": 68,
+      "nome": "Bolinho de bacalhau",
+      "ingredientes": [
+        "bacalhau",
+        "batata",
+        "ovo",
+        "cebola",
+        "salsa",
+        "oleo"
+      ],
+      "tempo_min": 45,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Cozinhe e desfie o bacalhau. Cozinhe a batata e amasse. Misture com ovo, cebola e salsa. Modele bolinhos e frite em oleo quente."
+    },
+    {
+      "id": 69,
+      "nome": "Sardinha na pressao",
+      "ingredientes": [
+        "sardinha",
+        "tomate",
+        "cebola",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem gluten",
+        "low carb",
+        "proteico"
+      ],
+      "modo": "Forre a panela de pressao com rodelas de cebola e tomate. Coloque a sardinha temperada. Cozinhe por 15 minutos apos pegar pressao."
+    },
+    {
+      "id": 70,
+      "nome": "Moqueca de peixe",
+      "ingredientes": [
+        "peixe",
+        "tomate",
+        "cebola",
+        "alho",
+        "leite de coco",
+        "oleo",
+        "limao"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Tempere o peixe com limao e alho. Refogue cebola e tomate, junte o peixe e o leite de coco. Cozinhe em fogo baixo por 20 minutos."
+    },
+    {
+      "id": 71,
+      "nome": "Caldo de mandioca",
+      "ingredientes": [
+        "mandioca",
+        "cebola",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Cozinhe a mandioca ate ficar macia. Refogue cebola e alho. Bata a mandioca no liquidificador com a agua do cozimento e o refogado. Tempere e ferva."
+    },
+    {
+      "id": 72,
+      "nome": "Canja de galinha",
+      "ingredientes": [
+        "peito de frango",
+        "arroz",
+        "cenoura",
+        "cebola",
+        "alho",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem gluten",
+        "proteico",
+        "economico"
+      ],
+      "modo": "Cozinhe o frango e desfie. Refogue cebola e alho, junte arroz, cenoura picada e o caldo. Cozinhe ate o arroz soltar, acrescente o frango desfiado."
+    },
+    {
+      "id": 73,
+      "nome": "Frango a passarinho (air fryer)",
+      "ingredientes": [
+        "peito de frango",
+        "alho",
+        "limao",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "low carb",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Tempere os pedacos de frango com alho, limao e sal. Pincele oleo e coloque na air fryer a 200C por 20 minutos, virando na metade."
+    },
+    {
+      "id": 74,
+      "nome": "Batata frita (air fryer)",
+      "ingredientes": [
+        "batata",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Corte a batata em palitos. Deixe de molho em agua fria 15 min, seque, tempere com oleo e sal. Asse na air fryer a 200C por 20 minutos."
+    },
+    {
+      "id": 75,
+      "nome": "Limonada",
+      "ingredientes": [
+        "limao",
+        "acucar"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Esprema os limoes, misture o suco com acucar e gelo a gosto. Adicione agua e mexa bem."
+    },
+    {
+      "id": 76,
+      "nome": "Suco de laranja natural",
+      "ingredientes": [
+        "laranja"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegano",
+        "sem lactose",
+        "sem gluten",
+        "economico"
+      ],
+      "modo": "Esprema as laranjas e sirva gelado. Nao coe para preservar as fibras."
+    },
+    {
+      "id": 77,
+      "nome": "Ceviche",
+      "ingredientes": [
+        "peixe",
+        "limao",
+        "cebola",
+        "tomate",
+        "sal"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "low carb",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Corte o peixe em cubos e marine no suco de limao por 15 min. Misture cebola roxa, tomate e sal. Sirva gelado."
+    },
+    {
+      "id": 78,
+      "nome": "Sopa de legumes",
+      "ingredientes": [
+        "abobrinha",
+        "batata",
+        "cenoura",
+        "cebola",
+        "alho",
+        "sal"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Refogue cebola e alho, junte os legumes picados e cubra com agua. Cozinhe por 30 min ate amaciar, tempere com sal e sirva quente."
+    },
+    {
+      "id": 79,
+      "nome": "Caldo verde",
+      "ingredientes": [
+        "batata",
+        "couve",
+        "linguica",
+        "alho",
+        "cebola",
+        "sal"
+      ],
+      "tempo_min": 45,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten"
+      ],
+      "modo": "Cozinhe as batatas e bata para virar creme. Refogue linguica em rodelas com alho e cebola, junte ao creme, adicione a couve fatiada fina e cozinhe 5 min."
+    },
+    {
+      "id": 80,
+      "nome": "Sopa de abobora com gengibre",
+      "ingredientes": [
+        "abobora",
+        "gengibre",
+        "cebola",
+        "alho",
+        "sal"
+      ],
+      "tempo_min": 35,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "low carb",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Refogue cebola, alho e gengibre ralado. Junte a abobora em cubos, cubra com agua e cozinhe 25 min. Bata no liquidificador ate ficar cremoso."
+    },
+    {
+      "id": 81,
+      "nome": "Creme de brocolis",
+      "ingredientes": [
+        "brocolis",
+        "batata",
+        "cebola",
+        "alho",
+        "creme de leite"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten"
+      ],
+      "modo": "Cozinhe brocolis e batata com cebola e alho. Bata tudo com um pouco da agua do cozimento, volte a panela, adicione o creme de leite e aqueca sem ferver."
+    },
+    {
+      "id": 82,
+      "nome": "Salmao grelhado",
+      "ingredientes": [
+        "salmao",
+        "limao",
+        "sal",
+        "azeite",
+        "alho"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "low carb",
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Tempere o salmao com sal, alho e limao. Grelhe em fio de azeite por 4 min de cada lado ate dourar e sirva."
+    },
+    {
+      "id": 83,
+      "nome": "Moqueca de camarao",
+      "ingredientes": [
+        "camarao",
+        "leite de coco",
+        "tomate",
+        "cebola",
+        "pimentao",
+        "coentro"
+      ],
+      "tempo_min": 35,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "low carb",
+        "proteico"
+      ],
+      "modo": "Faca camadas de cebola, tomate e pimentao na panela. Adicione os camaroes, regue com leite de coco e cozinhe 20 min. Finalize com coentro."
+    },
+    {
+      "id": 84,
+      "nome": "Salada de atum",
+      "ingredientes": [
+        "atum",
+        "alface",
+        "tomate",
+        "cebola",
+        "limao"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "facil",
+      "dietas": [
+        "low carb",
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Misture o atum escorrido com alface rasgada, tomate e cebola picados. Tempere com limao e sal e sirva gelada."
+    },
+    {
+      "id": 85,
+      "nome": "Batata frita na air fryer",
+      "ingredientes": [
+        "batata",
+        "sal",
+        "azeite"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Corte as batatas em palitos, seque bem e misture com azeite e sal. Asse na air fryer a 200C por 20 min, mexendo na metade do tempo."
+    },
+    {
+      "id": 86,
+      "nome": "Frango a passarinho na air fryer",
+      "ingredientes": [
+        "peito de frango",
+        "alho",
+        "sal",
+        "limao",
+        "azeite"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "low carb",
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Tempere o frango em pedacos com alho, sal e limao. Regue com azeite e asse na air fryer a 200C por 25 min, virando na metade."
+    },
+    {
+      "id": 87,
+      "nome": "Nuggets caseiro na air fryer",
+      "ingredientes": [
+        "peito de frango",
+        "farinha de trigo",
+        "ovo",
+        "sal",
+        "oleo"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "media",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Corte o frango em cubos, passe no ovo batido e na farinha temperada. Borrife oleo e asse na air fryer a 190C por 15 min ate dourar."
+    },
+    {
+      "id": 88,
+      "nome": "Hamburguer de grao de bico",
+      "ingredientes": [
+        "grao de bico",
+        "cebola",
+        "alho",
+        "farinha de trigo",
+        "sal"
+      ],
+      "tempo_min": 35,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Amasse o grao de bico cozido com cebola e alho. Junte farinha e sal, modele os hamburgueres e frite ou asse ate dourar dos dois lados."
+    },
+    {
+      "id": 89,
+      "nome": "Estrogonofe de cogumelo",
+      "ingredientes": [
+        "cogumelo",
+        "creme de leite",
+        "molho de tomate",
+        "cebola",
+        "alho"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten"
+      ],
+      "modo": "Refogue cebola, alho e cogumelos fatiados. Adicione molho de tomate, cozinhe 5 min e finalize com creme de leite sem ferver."
+    },
+    {
+      "id": 90,
+      "nome": "Salada de quinoa",
+      "ingredientes": [
+        "quinoa",
+        "tomate",
+        "pepino",
+        "cebola",
+        "limao"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Cozinhe a quinoa e deixe esfriar. Misture com tomate, pepino e cebola picados, tempere com limao, azeite e sal."
+    },
+    {
+      "id": 91,
+      "nome": "Panqueca de aveia",
+      "ingredientes": [
+        "aveia",
+        "ovo",
+        "banana"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano",
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Bata aveia, ovo e banana ate formar uma massa. Frite pequenas porcoes em frigideira antiaderente ate dourar dos dois lados."
+    },
+    {
+      "id": 92,
+      "nome": "Wrap de frango",
+      "ingredientes": [
+        "pao",
+        "peito de frango",
+        "alface",
+        "tomate",
+        "cebola"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Grelhe o frango desfiado temperado. Recheie o pao com o frango, alface, tomate e cebola, enrole firme e sirva."
+    },
+    {
+      "id": 93,
+      "nome": "Sanduiche natural",
+      "ingredientes": [
+        "pao",
+        "cenoura",
+        "milho",
+        "requeijao"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Misture cenoura ralada e milho com o requeijao. Passe no pao de forma, monte o sanduiche e sirva gelado."
+    },
+    {
+      "id": 94,
+      "nome": "Tofu grelhado com shoyu",
+      "ingredientes": [
+        "tofu",
+        "shoyu",
+        "gengibre",
+        "alho",
+        "gergelim"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "low carb",
+        "proteico",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Corte o tofu em cubos e marine no shoyu com alho e gengibre. Grelhe ate dourar e finalize com gergelim torrado."
+    },
+    {
+      "id": 95,
+      "nome": "Curry de lentilha",
+      "ingredientes": [
+        "lentilha",
+        "leite de coco",
+        "curry",
+        "cebola",
+        "alho",
+        "tomate"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Refogue cebola e alho, junte o curry e o tomate. Adicione a lentilha e o leite de coco, cozinhe 30 min ate encorpar."
+    },
+    {
+      "id": 96,
+      "nome": "Escondidinho de batata doce",
+      "ingredientes": [
+        "batata doce",
+        "carne moida",
+        "cebola",
+        "alho",
+        "sal"
+      ],
+      "tempo_min": 45,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Cozinhe e amasse a batata doce. Refogue a carne moida com cebola e alho, monte em camadas com o pure por cima e leve ao forno por 15 min."
+    },
+    {
+      "id": 97,
+      "nome": "Omelete low carb de espinafre",
+      "ingredientes": [
+        "ovo",
+        "espinafre",
+        "queijo",
+        "sal"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "facil",
+      "dietas": [
+        "low carb",
+        "vegetariano",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Bata os ovos com sal, junte espinafre picado e queijo. Despeje na frigideira quente e cozinhe em fogo baixo ate firmar."
+    },
+    {
+      "id": 98,
+      "nome": "Chips de couve na air fryer",
+      "ingredientes": [
+        "couve",
+        "azeite",
+        "sal"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "low carb",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Rasgue a couve em pedacos, misture com azeite e sal. Asse na air fryer a 160C por 8 min ate ficarem crocantes."
+    },
+    {
+      "id": 99,
+      "nome": "Berinjela recheada low carb",
+      "ingredientes": [
+        "berinjela",
+        "carne moida",
+        "tomate",
+        "cebola",
+        "queijo"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "low carb",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Corte a berinjela ao meio e retire o miolo. Recheie com carne moida refogada com tomate e cebola, cubra com queijo e asse por 25 min."
+    },
+    {
+      "id": 100,
+      "nome": "Salada de grao de bico",
+      "ingredientes": [
+        "grao de bico",
+        "tomate",
+        "cebola",
+        "pepino",
+        "limao"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Misture o grao de bico cozido com tomate, cebola e pepino picados. Tempere com limao, azeite e sal e sirva gelada."
+    },
+    {
+      "id": 101,
+      "nome": "Guacamole",
+      "ingredientes": [
+        "abacate",
+        "tomate",
+        "cebola",
+        "limao",
+        "coentro",
+        "sal"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "low carb",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Amasse o abacate com garfo. Junte tomate, cebola e coentro picados, tempere com limao e sal e sirva com nachos ou torradas."
+    },
+    {
+      "id": 102,
+      "nome": "Tacos de carne",
+      "ingredientes": [
+        "tortilla",
+        "carne moida",
+        "cebola",
+        "tomate",
+        "alface",
+        "queijo"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Refogue a carne moida com cebola temperada. Aqueca as tortillas, recheie com a carne, tomate, alface e queijo ralado. Dobre e sirva."
+    },
+    {
+      "id": 103,
+      "nome": "Burrito de feijao",
+      "ingredientes": [
+        "tortilla",
+        "feijao",
+        "arroz",
+        "queijo",
+        "cebola"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Aqueca a tortilla, recheie com arroz, feijao amassado, queijo e cebola. Enrole firme dobrando as laterais e sirva."
+    },
+    {
+      "id": 104,
+      "nome": "Nachos com queijo",
+      "ingredientes": [
+        "tortilla",
+        "queijo",
+        "tomate",
+        "pimenta"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten"
+      ],
+      "modo": "Corte as tortillas em triangulos e asse ate ficarem crocantes. Cubra com queijo derretido, tomate picado e pimenta a gosto."
+    },
+    {
+      "id": 105,
+      "nome": "Chili con carne",
+      "ingredientes": [
+        "carne moida",
+        "feijao",
+        "tomate",
+        "cebola",
+        "alho",
+        "pimenta"
+      ],
+      "tempo_min": 45,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Refogue cebola e alho, frite a carne moida. Junte tomate, feijao cozido e pimenta. Cozinhe em fogo baixo por 30 min ate encorpar."
+    },
+    {
+      "id": 106,
+      "nome": "Pizza caseira",
+      "ingredientes": [
+        "farinha de trigo",
+        "fermento",
+        "molho de tomate",
+        "queijo",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "media",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Faca a massa com farinha, fermento, oleo, sal e agua morna. Deixe crescer, abra, cubra com molho e queijo e asse a 220C por 15 min."
+    },
+    {
+      "id": 107,
+      "nome": "Focaccia de alecrim",
+      "ingredientes": [
+        "farinha de trigo",
+        "fermento",
+        "azeite",
+        "sal",
+        "alecrim"
+      ],
+      "tempo_min": 90,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Misture farinha, fermento, sal, azeite e agua. Deixe crescer 1 h, faca covinhas com os dedos, regue com azeite e alecrim e asse a 220C por 20 min."
+    },
+    {
+      "id": 108,
+      "nome": "Bruschetta",
+      "ingredientes": [
+        "pao",
+        "tomate",
+        "alho",
+        "azeite",
+        "manjericao"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem lactose",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Toste fatias de pao esfregadas com alho. Cubra com tomate picado temperado com azeite, sal e manjericao fresco."
+    },
+    {
+      "id": 109,
+      "nome": "Risoto de cogumelos",
+      "ingredientes": [
+        "arroz",
+        "cogumelo",
+        "cebola",
+        "alho",
+        "queijo",
+        "manteiga"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "vegetariano",
+        "sem gluten"
+      ],
+      "modo": "Refogue cebola, alho e cogumelos na manteiga. Junte o arroz e adicione caldo aos poucos, mexendo. Finalize com queijo ralado."
+    },
+    {
+      "id": 110,
+      "nome": "Macarrao ao pesto",
+      "ingredientes": [
+        "macarrao",
+        "manjericao",
+        "alho",
+        "azeite",
+        "queijo",
+        "nozes"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Bata manjericao, alho, nozes, queijo e azeite ate virar pasta. Cozinhe o macarrao e misture ao pesto ainda quente."
+    },
+    {
+      "id": 111,
+      "nome": "Ratatouille",
+      "ingredientes": [
+        "berinjela",
+        "abobrinha",
+        "tomate",
+        "pimentao",
+        "cebola",
+        "alho"
+      ],
+      "tempo_min": 50,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "low carb",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Faca um molho refogando cebola, alho e tomate. Disponha rodelas de berinjela, abobrinha e pimentao sobre o molho e asse a 180C por 40 min."
+    },
+    {
+      "id": 112,
+      "nome": "Homus",
+      "ingredientes": [
+        "grao de bico",
+        "gergelim",
+        "alho",
+        "limao",
+        "azeite"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Bata o grao de bico cozido com pasta de gergelim, alho, limao e azeite ate virar creme liso. Sirva regado com azeite."
+    },
+    {
+      "id": 113,
+      "nome": "Falafel",
+      "ingredientes": [
+        "grao de bico",
+        "cebola",
+        "alho",
+        "salsa",
+        "coentro"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Bata o grao de bico cru hidratado com cebola, alho e ervas. Modele bolinhas e frite em oleo quente ate dourarem."
+    },
+    {
+      "id": 114,
+      "nome": "Tabule",
+      "ingredientes": [
+        "trigo para quibe",
+        "tomate",
+        "cebola",
+        "hortela",
+        "salsa",
+        "limao"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Hidrate o trigo em agua por 20 min e escorra. Misture com tomate, cebola, hortela e salsa picados. Tempere com limao, azeite e sal."
+    },
+    {
+      "id": 115,
+      "nome": "Quibe assado",
+      "ingredientes": [
+        "trigo para quibe",
+        "carne moida",
+        "cebola",
+        "hortela",
+        "sal"
+      ],
+      "tempo_min": 50,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "proteico"
+      ],
+      "modo": "Hidrate o trigo e misture com a carne moida, cebola e hortela. Espalhe numa forma, marque losangos e asse a 200C por 30 min."
+    },
+    {
+      "id": 116,
+      "nome": "Babaganuche",
+      "ingredientes": [
+        "berinjela",
+        "gergelim",
+        "alho",
+        "limao",
+        "azeite"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "low carb",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Asse a berinjela ate a casca murchar, retire a polpa e bata com pasta de gergelim, alho, limao e azeite ate virar creme."
+    },
+    {
+      "id": 117,
+      "nome": "Yakisoba",
+      "ingredientes": [
+        "macarrao",
+        "repolho",
+        "cenoura",
+        "peito de frango",
+        "shoyu"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "proteico"
+      ],
+      "modo": "Salteie o frango em tiras, junte repolho e cenoura em fogo alto. Adicione o macarrao cozido e o shoyu e misture rapidamente."
+    },
+    {
+      "id": 118,
+      "nome": "Frango xadrez",
+      "ingredientes": [
+        "peito de frango",
+        "pimentao",
+        "cebola",
+        "shoyu",
+        "amendoim"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "proteico"
+      ],
+      "modo": "Doure o frango em cubos, junte pimentao e cebola em pedacos. Tempere com shoyu, finalize com amendoim e sirva com arroz."
+    },
+    {
+      "id": 119,
+      "nome": "Arroz frito oriental",
+      "ingredientes": [
+        "arroz",
+        "ovo",
+        "cenoura",
+        "ervilha",
+        "shoyu"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "vegetariano"
+      ],
+      "modo": "Em fogo alto, mexa o ovo ate soltar, junte cenoura e ervilha. Adicione o arroz cozido e o shoyu, salteando ate aquecer bem."
+    },
+    {
+      "id": 120,
+      "nome": "Curry de grao de bico",
+      "ingredientes": [
+        "grao de bico",
+        "leite de coco",
+        "curry",
+        "tomate",
+        "cebola",
+        "alho"
+      ],
+      "tempo_min": 35,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Refogue cebola e alho, junte o curry e o tomate. Adicione o grao de bico cozido e o leite de coco e cozinhe 20 min ate encorpar."
+    },
+    {
+      "id": 121,
+      "nome": "Dal de lentilha",
+      "ingredientes": [
+        "lentilha",
+        "cebola",
+        "alho",
+        "gengibre",
+        "curry"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Refogue cebola, alho e gengibre com curry. Junte a lentilha e agua, cozinhe ate desmanchar formando um creme espesso."
+    },
+    {
+      "id": 122,
+      "nome": "Panqueca americana",
+      "ingredientes": [
+        "farinha de trigo",
+        "ovo",
+        "leite",
+        "fermento",
+        "acucar",
+        "manteiga"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Misture os secos e depois ovo, leite e manteiga derretida. Despeje pequenas porcoes na frigideira e vire quando surgirem bolhas."
+    },
+    {
+      "id": 123,
+      "nome": "Waffle caseiro",
+      "ingredientes": [
+        "farinha de trigo",
+        "ovo",
+        "leite",
+        "fermento",
+        "acucar",
+        "manteiga"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Bata a massa lisa com todos os ingredientes. Despeje na maquina de waffle pre-aquecida e asse ate dourar e ficar crocante."
+    },
+    {
+      "id": 124,
+      "nome": "Rabanada",
+      "ingredientes": [
+        "pao",
+        "ovo",
+        "leite",
+        "acucar",
+        "canela"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Passe as fatias de pao no leite e no ovo batido. Frite ate dourar e finalize com acucar e canela."
+    },
+    {
+      "id": 125,
+      "nome": "Overnight oats",
+      "ingredientes": [
+        "aveia",
+        "leite",
+        "banana",
+        "mel"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Misture aveia, leite e mel num pote, cubra com banana em rodelas e deixe na geladeira de um dia para o outro."
+    },
+    {
+      "id": 126,
+      "nome": "Smoothie de morango",
+      "ingredientes": [
+        "morango",
+        "leite",
+        "banana"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Bata o morango com a banana e o leite no liquidificador ate ficar cremoso. Sirva gelado."
+    },
+    {
+      "id": 127,
+      "nome": "Iogurte com granola",
+      "ingredientes": [
+        "iogurte",
+        "granola",
+        "mel",
+        "banana"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano",
+        "proteico"
+      ],
+      "modo": "Coloque o iogurte na tigela, cubra com granola e banana fatiada e regue com mel."
+    },
+    {
+      "id": 128,
+      "nome": "Acai na tigela",
+      "ingredientes": [
+        "acai",
+        "banana",
+        "granola"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem lactose",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Bata a polpa de acai com banana ate ficar cremosa. Sirva na tigela coberta com granola e mais banana fatiada."
+    },
+    {
+      "id": 129,
+      "nome": "Pao de forma caseiro",
+      "ingredientes": [
+        "farinha de trigo",
+        "fermento",
+        "leite",
+        "acucar",
+        "oleo",
+        "sal"
+      ],
+      "tempo_min": 120,
+      "dificuldade": "media",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Sove a massa com todos os ingredientes e deixe crescer 1 h. Modele, coloque na forma, deixe dobrar de volume e asse a 180C por 35 min."
+    },
+    {
+      "id": 130,
+      "nome": "Muffin de chocolate",
+      "ingredientes": [
+        "farinha de trigo",
+        "ovo",
+        "acucar",
+        "chocolate",
+        "leite",
+        "fermento",
+        "oleo"
+      ],
+      "tempo_min": 35,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Misture os secos e depois os umidos. Junte pedacos de chocolate, distribua em forminhas e asse a 180C por 20 min."
+    },
+    {
+      "id": 131,
+      "nome": "Cookie de chocolate",
+      "ingredientes": [
+        "farinha de trigo",
+        "manteiga",
+        "acucar",
+        "ovo",
+        "chocolate"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Bata manteiga com acucar, junte ovo e farinha. Adicione gotas de chocolate, faca bolinhas e asse a 180C por 12 min."
+    },
+    {
+      "id": 132,
+      "nome": "Brownie",
+      "ingredientes": [
+        "chocolate",
+        "manteiga",
+        "ovo",
+        "acucar",
+        "farinha de trigo"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Derreta chocolate com manteiga. Bata ovos e acucar, incorpore o chocolate e a farinha. Asse a 180C por 25 min para ficar umido."
+    },
+    {
+      "id": 133,
+      "nome": "Cheesecake de geleia",
+      "ingredientes": [
+        "biscoito",
+        "manteiga",
+        "cream cheese",
+        "acucar",
+        "geleia"
+      ],
+      "tempo_min": 40,
+      "dificuldade": "media",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Triture o biscoito com manteiga e forre a forma. Bata cream cheese com acucar, espalhe sobre a base e cubra com geleia. Leve a geladeira."
+    },
+    {
+      "id": 134,
+      "nome": "Mousse de chocolate",
+      "ingredientes": [
+        "chocolate",
+        "creme de leite",
+        "ovo",
+        "acucar"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten"
+      ],
+      "modo": "Derreta o chocolate e misture ao creme de leite. Bata as claras em neve com acucar e incorpore delicadamente. Leve a geladeira por 3 h."
+    },
+    {
+      "id": 135,
+      "nome": "Gelatina colorida",
+      "ingredientes": [
+        "gelatina",
+        "acucar"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "sem gluten",
+        "sem lactose",
+        "economico"
+      ],
+      "modo": "Dissolva a gelatina em agua quente com acucar, complete com agua fria e leve a geladeira ate firmar."
+    },
+    {
+      "id": 136,
+      "nome": "Salada caprese",
+      "ingredientes": [
+        "tomate",
+        "queijo",
+        "manjericao",
+        "azeite"
+      ],
+      "tempo_min": 10,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten",
+        "low carb"
+      ],
+      "modo": "Intercale fatias de tomate e queijo, distribua folhas de manjericao e regue com azeite e sal."
+    },
+    {
+      "id": 137,
+      "nome": "Salada grega",
+      "ingredientes": [
+        "pepino",
+        "tomate",
+        "cebola",
+        "queijo",
+        "azeite"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten",
+        "low carb"
+      ],
+      "modo": "Corte pepino, tomate e cebola em cubos, junte queijo em pedacos e tempere com azeite, oregano e sal."
+    },
+    {
+      "id": 138,
+      "nome": "Caesar salad",
+      "ingredientes": [
+        "alface",
+        "pao",
+        "queijo",
+        "peito de frango",
+        "limao"
+      ],
+      "tempo_min": 25,
+      "dificuldade": "facil",
+      "dietas": [
+        "proteico"
+      ],
+      "modo": "Grelhe o frango em tiras e faca croutons de pao. Misture com alface e queijo e tempere com molho de limao e azeite."
+    },
+    {
+      "id": 139,
+      "nome": "Coleslaw",
+      "ingredientes": [
+        "repolho",
+        "cenoura",
+        "maionese",
+        "limao"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten"
+      ],
+      "modo": "Fatie o repolho fino e rale a cenoura. Misture com maionese, limao e sal e leve a geladeira antes de servir."
+    },
+    {
+      "id": 140,
+      "nome": "Wrap vegetariano",
+      "ingredientes": [
+        "tortilla",
+        "alface",
+        "tomate",
+        "cenoura",
+        "requeijao"
+      ],
+      "tempo_min": 15,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Passe requeijao na tortilla, distribua alface, tomate e cenoura ralada, enrole firme e corte ao meio."
+    },
+    {
+      "id": 141,
+      "nome": "Sopa de ervilha",
+      "ingredientes": [
+        "ervilha",
+        "cebola",
+        "alho",
+        "batata",
+        "sal"
+      ],
+      "tempo_min": 45,
+      "dificuldade": "facil",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "vegano",
+        "vegetariano"
+      ],
+      "modo": "Refogue cebola e alho, junte ervilha e batata e cubra com agua. Cozinhe ate desmanchar e bata ate ficar cremosa."
+    },
+    {
+      "id": 142,
+      "nome": "Feijoada leve",
+      "ingredientes": [
+        "feijao",
+        "linguica",
+        "bacon",
+        "cebola",
+        "alho"
+      ],
+      "tempo_min": 90,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Cozinhe o feijao ate macio. Frite bacon e linguica com cebola e alho, junte ao feijao e cozinhe mais 20 min para apurar."
+    },
+    {
+      "id": 143,
+      "nome": "Baiao de dois",
+      "ingredientes": [
+        "arroz",
+        "feijao",
+        "queijo",
+        "linguica",
+        "cebola"
+      ],
+      "tempo_min": 45,
+      "dificuldade": "media",
+      "dietas": [
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Frite a linguica com cebola, junte arroz e feijao cozido e agua. Cozinhe ate secar e finalize com queijo em cubos."
+    },
+    {
+      "id": 144,
+      "nome": "Cuscuz nordestino",
+      "ingredientes": [
+        "flocos de milho",
+        "sal",
+        "manteiga"
+      ],
+      "tempo_min": 20,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten"
+      ],
+      "modo": "Umedeca os flocos de milho com agua e sal ate soltarem. Coloque na cuscuzeira e cozinhe no vapor 15 min. Sirva com manteiga."
+    },
+    {
+      "id": 145,
+      "nome": "Vaca atolada",
+      "ingredientes": [
+        "costela",
+        "mandioca",
+        "tomate",
+        "cebola",
+        "alho"
+      ],
+      "tempo_min": 120,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Cozinhe a costela com cebola, alho e tomate ate macia. Junte a mandioca e cozinhe ate ela desmanchar levemente no caldo."
+    },
+    {
+      "id": 146,
+      "nome": "Galinhada",
+      "ingredientes": [
+        "peito de frango",
+        "arroz",
+        "acafrao",
+        "cebola",
+        "alho",
+        "pimentao"
+      ],
+      "tempo_min": 50,
+      "dificuldade": "media",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Doure o frango com cebola, alho e pimentao. Junte o arroz e o acafrao, cubra com caldo e cozinhe ate o arroz ficar macio."
+    },
+    {
+      "id": 147,
+      "nome": "Bobo de camarao",
+      "ingredientes": [
+        "camarao",
+        "mandioca",
+        "leite de coco",
+        "tomate",
+        "cebola"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "chef",
+      "dietas": [
+        "sem lactose",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Cozinhe e bata a mandioca com leite de coco formando um creme. Refogue os camaroes com tomate e cebola e junte ao creme."
+    },
+    {
+      "id": 148,
+      "nome": "Pao de mel",
+      "ingredientes": [
+        "farinha de trigo",
+        "mel",
+        "chocolate",
+        "leite",
+        "fermento",
+        "canela"
+      ],
+      "tempo_min": 60,
+      "dificuldade": "media",
+      "dietas": [
+        "vegetariano"
+      ],
+      "modo": "Faca a massa com mel, leite, farinha, canela e fermento. Asse em forminhas e depois banhe os paezinhos em chocolate derretido."
+    },
+    {
+      "id": 149,
+      "nome": "Cajuzinho",
+      "ingredientes": [
+        "amendoim",
+        "leite condensado",
+        "chocolate"
+      ],
+      "tempo_min": 30,
+      "dificuldade": "facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten"
+      ],
+      "modo": "Cozinhe o leite condensado com amendoim moido e chocolate ate desgrudar da panela. Deixe esfriar, enrole e passe em amendoim."
+    },
+    {
+      "id": 150,
+      "nome": "Vitamina de abacate",
+      "ingredientes": [
+        "abacate",
+        "leite",
+        "acucar"
+      ],
+      "tempo_min": 5,
+      "dificuldade": "muito facil",
+      "dietas": [
+        "vegetariano",
+        "sem gluten",
+        "proteico"
+      ],
+      "modo": "Bata o abacate com o leite e o acucar no liquidificador ate ficar cremoso. Sirva gelado."
+    }
+  ]
+}

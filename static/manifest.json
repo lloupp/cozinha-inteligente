@@ -1,0 +1,17 @@
+{
+  "name": "Tem em Casa? — Cozinha Inteligente",
+  "short_name": "Tem em Casa?",
+  "description": "Descubra o que cozinhar com o que você já tem em casa. Zero desperdício.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#eef3f0",
+  "theme_color": "#1f7a4c",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
