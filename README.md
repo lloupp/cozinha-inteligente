@@ -4,8 +4,9 @@ App web que responde à pergunta diária **"o que eu cozinho hoje com o que já 
 reduzindo o desperdício de alimentos e sugerindo receitas personalizadas a partir dos
 ingredientes disponíveis.
 
-![Demo](https://img.shields.io/badge/demo-online-blue)
+![CI](https://github.com/lloupp/cozinha-inteligente/actions/workflows/ci.yml/badge.svg)
 ![Licença](https://img.shields.io/badge/LICENCA-MIT-green)
+![Python](https://img.shields.io/badge/Python-3.12-blue)
 
 ## Diferenciais
 
