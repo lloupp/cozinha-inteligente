@@ -5,6 +5,8 @@ from engine import (
     IngredientesDatabase,
     calcular_receita,
     canonicalize_ingredient,
+    dieta_compativel,
+    dietas_efetivas,
     esta_comprado,
     normalize,
 )
@@ -47,6 +49,27 @@ class TestEstaComprado:
         assert esta_comprado("carne", ["ovo", "leite"]) is False
 
 
+class TestDietas:
+    def test_vegano_rejeita_produto_animal(self):
+        assert dieta_compativel("vegano", ["tomate", "queijo"]) is False
+        assert dieta_compativel("vegano", ["arroz", "tomate"]) is True
+
+    def test_sem_lactose_nao_confunde_leite_de_coco(self):
+        assert dieta_compativel("sem lactose", ["leite"]) is False
+        assert dieta_compativel("sem lactose", ["leite de coco"]) is True
+
+    def test_sem_gluten_rejeita_trigo(self):
+        assert dieta_compativel("sem gluten", ["farinha de trigo"]) is False
+        assert dieta_compativel("sem gluten", ["arroz"]) is True
+
+    def test_remove_badge_contraditorio(self):
+        rec = {
+            "ingredientes": ["macarrao", "queijo"],
+            "dietas": ["vegano", "sem lactose", "proteico"],
+        }
+        assert dietas_efetivas(rec) == ["proteico"]
+
+
 class TestCalcularReceita:
     def receita(self, **overrides):
         base = {
@@ -85,6 +108,15 @@ class TestCalcularReceita:
         rec = self.receita(dietas=["proteico", "sem gluten"])
         assert calcular_receita(rec, ["ovo"], False, ["proteico"]) is not None
         assert calcular_receita(rec, ["ovo"], False, ["vegano"]) is None
+
+    def test_filtro_dieta_rejeita_rotulo_contraditorio(self):
+        rec = self.receita(
+            ingredientes=["macarrao", "queijo"],
+            dietas=["vegano", "sem lactose"],
+        )
+        assert calcular_receita(rec, [], False, ["vegano"]) is None
+        result = calcular_receita(rec, [], False, [])
+        assert result["dietas"] == []
 
     def test_filtro_dificuldade(self):
         rec = self.receita(dificuldade="facil")
