@@ -22,18 +22,32 @@ INGREDIENT_ALIASES = {
 }
 
 TRAILING_QUALIFIERS = {
-    "cozido",
-    "cozida",
-    "cozidos",
-    "cozidas",
-    "fresco",
-    "fresca",
-    "frescos",
-    "frescas",
-    "maduro",
-    "madura",
-    "maduros",
-    "maduras",
+    "cozido", "cozida", "cozidos", "cozidas",
+    "fresco", "fresca", "frescos", "frescas",
+    "maduro", "madura", "maduros", "maduras",
+}
+
+DIET_FORBIDDEN_INGREDIENTS = {
+    "vegano": {
+        "ovo", "queijo", "leite", "leite de vaca", "leite condensado",
+        "creme de leite", "manteiga", "requeijao", "iogurte", "cream cheese",
+        "maionese", "mel", "gelatina", "carne", "carne moida", "presunto",
+        "peito de frango", "costela", "figado", "bacon", "linguica",
+        "tilapia", "bacalhau", "sardinha", "peixe", "salmao", "camarao", "atum",
+    },
+    "vegetariano": {
+        "carne", "carne moida", "presunto", "peito de frango", "costela",
+        "figado", "bacon", "linguica", "tilapia", "bacalhau", "sardinha",
+        "peixe", "salmao", "camarao", "atum", "gelatina",
+    },
+    "sem lactose": {
+        "queijo", "leite", "leite de vaca", "leite condensado", "creme de leite",
+        "manteiga", "requeijao", "iogurte", "cream cheese",
+    },
+    "sem gluten": {
+        "farinha de trigo", "massa de lasanha", "macarrao", "pao",
+        "fatia de pao", "pao frances", "biscoito", "trigo para quibe",
+    },
 }
 
 
@@ -57,6 +71,26 @@ def canonicalize_ingredient(texto: str) -> str:
         parts.pop()
     normalized = " ".join(parts)
     return INGREDIENT_ALIASES.get(normalized, normalized)
+
+
+def dieta_compativel(dieta: str, ingredientes: List[str]) -> bool:
+    """Impede rótulos dietéticos contraditórios com ingredientes explícitos."""
+    dieta_norm = normalize(dieta)
+    proibidos = DIET_FORBIDDEN_INGREDIENTS.get(dieta_norm)
+    if not proibidos:
+        return True
+    ingredientes_norm = {canonicalize_ingredient(i) for i in ingredientes}
+    return ingredientes_norm.isdisjoint(proibidos)
+
+
+def dietas_efetivas(rec: Dict[str, Any]) -> List[str]:
+    """Retorna apenas dietas declaradas que não contradizem a receita."""
+    ingredientes = rec.get("ingredientes", [])
+    return [
+        normalize(dieta)
+        for dieta in rec.get("dietas", [])
+        if dieta_compativel(dieta, ingredientes)
+    ]
 
 
 class IngredientesDatabase:
@@ -97,7 +131,7 @@ def calcular_receita(
     if so_tenho_isso and falta:
         return None
 
-    rec_dietas = {normalize(d) for d in rec.get("dietas", [])}
+    rec_dietas = set(dietas_efetivas(rec))
     dietas_norm = {normalize(d) for d in dietas if d}
     if dietas_norm and not dietas_norm.issubset(rec_dietas):
         return None
@@ -129,7 +163,7 @@ def calcular_receita(
         "custo_falta": round(custo_falta, 2),
         "tempo_min": rec.get("tempo_min"),
         "dificuldade": rec.get("dificuldade"),
-        "dietas": rec.get("dietas", []),
+        "dietas": sorted(rec_dietas),
         "modo": rec.get("modo", ""),
         "urgencia": urgencia,
         "score": compat + urgencia,
