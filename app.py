@@ -1,20 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""
-Cozinha Inteligente — "Tem em Casa?"
-App web que sugere receitas com base nos ingredientes que o usuário já tem,
-priorizando zero desperdício de alimentos.
+"""Cozinha Inteligente — API Flask e frontend PWA."""
 
-Autor: Hermes (Eduardo)
-"""
+from functools import lru_cache
 import json
 import os
-from flask import Flask, request, jsonify, send_from_directory
-from engine import (
-    normalize,
-    calcular_receita,
-    IngredientesDatabase,
-)
+
+from flask import Flask, jsonify, request, send_from_directory
+
+from engine import IngredientesDatabase, calcular_receita, normalize
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RECEITAS_PATH = os.path.join(BASE_DIR, "receitas.json")
@@ -48,15 +42,61 @@ CUSTO_INGREDIENTE = {
     "fatia de pão": 8.00, "pao francês": 5.00, "café": 4.00,
 }
 
-DIETAS_VALIDAS = {"vegano", "sem lactose", "low carb", "sem gluten", "proteico", "economico", "vegetariano"}
+DIETAS_VALIDAS = {
+    "vegano", "sem lactose", "low carb", "sem gluten",
+    "proteico", "economico", "vegetariano",
+}
+DIFICULDADES_VALIDAS = {"muito facil", "facil", "media", "chef"}
 
 app = Flask(__name__, static_folder="static")
 db = IngredientesDatabase(CUSTO_INGREDIENTE)
 
 
+@lru_cache(maxsize=1)
 def carregar_receitas():
+    """Carrega e valida a estrutura mínima do catálogo uma única vez."""
     with open(RECEITAS_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)["receitas"]
+        payload = json.load(f)
+    receitas = payload.get("receitas")
+    if not isinstance(receitas, list):
+        raise RuntimeError("receitas.json deve conter uma lista em 'receitas'")
+    return receitas
+
+
+def _csv_param(nome):
+    return [
+        normalize(item)
+        for item in request.args.get(nome, "").split(",")
+        if item.strip()
+    ]
+
+
+def _invalidos(valores, permitidos):
+    return sorted(set(valores) - permitidos)
+
+
+@app.after_request
+def add_security_headers(response):
+    response.headers.setdefault("X-Content-Type-Options", "nosniff")
+    response.headers.setdefault("X-Frame-Options", "DENY")
+    response.headers.setdefault("Referrer-Policy", "strict-origin-when-cross-origin")
+    response.headers.setdefault(
+        "Permissions-Policy",
+        "camera=(self), microphone=(), geolocation=()",
+    )
+    response.headers.setdefault(
+        "Content-Security-Policy",
+        "default-src 'self'; "
+        "script-src 'self'; "
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
+        "font-src 'self' https://fonts.gstatic.com data:; "
+        "img-src 'self' data: blob:; "
+        "connect-src 'self'; "
+        "object-src 'none'; base-uri 'self'; frame-ancestors 'none'",
+    )
+    if request.path.startswith("/api/"):
+        response.headers.setdefault("Cache-Control", "no-store")
+    return response
 
 
 @app.route("/")
@@ -89,22 +129,46 @@ def app_js():
     return send_from_directory("static", "app.js")
 
 
+@app.route("/api/health")
+def api_health():
+    return jsonify({"status": "ok", "receitas": len(carregar_receitas())})
+
+
 @app.route("/api/receitas")
 def api_receitas():
-    raw = request.args.get("ingredientes", "")
-    ingredientes = [normalize(x) for x in raw.split(",") if x.strip()]
+    ingredientes = _csv_param("ingredientes")
+    vencendo = _csv_param("vencendo")
+    dietas = _csv_param("dietas")
+    dificuldades = _csv_param("dificuldade")
     so_tenho = request.args.get("sotenho", "false").lower() == "true"
-    vencendo = [normalize(x) for x in request.args.get("vencendo", "").split(",") if x.strip()]
-    dietas = [normalize(x) for x in request.args.get("dietas", "").split(",") if x.strip()]
 
-    receitas = carregar_receitas()
+    dietas_invalidas = _invalidos(dietas, DIETAS_VALIDAS)
+    dificuldades_invalidas = _invalidos(dificuldades, DIFICULDADES_VALIDAS)
+    if dietas_invalidas or dificuldades_invalidas:
+        return jsonify({
+            "erro": "Filtros inválidos",
+            "dietas_invalidas": dietas_invalidas,
+            "dificuldades_invalidas": dificuldades_invalidas,
+        }), 400
+
     resultados = []
-    for rec in receitas:
-        r = calcular_receita(rec, ingredientes, so_tenho, dietas, vencendo, db)
-        if r:
-            resultados.append(r)
+    for rec in carregar_receitas():
+        resultado = calcular_receita(
+            rec,
+            ingredientes,
+            so_tenho,
+            dietas,
+            vencendo=vencendo,
+            db=db,
+            dificuldades=dificuldades,
+        )
+        if resultado:
+            resultados.append(resultado)
 
-    resultados.sort(key=lambda x: (x["score"], x["compatibilidade"]), reverse=True)
+    resultados.sort(
+        key=lambda item: (item["score"], item["compatibilidade"]),
+        reverse=True,
+    )
 
     return jsonify({
         "total": len(resultados),
@@ -115,13 +179,17 @@ def api_receitas():
 
 @app.route("/api/ingredientes-sugeridos")
 def api_sugeridos():
-    conhecidos = sorted(set(CUSTO_INGREDIENTE.keys()))
-    return jsonify(conhecidos)
+    return jsonify(db.todos_ingredientes())
 
 
 @app.route("/api/dietas-validas")
 def api_dietas_validas():
     return jsonify(sorted(DIETAS_VALIDAS))
+
+
+@app.route("/api/dificuldades-validas")
+def api_dificuldades_validas():
+    return jsonify(sorted(DIFICULDADES_VALIDAS))
 
 
 if __name__ == "__main__":

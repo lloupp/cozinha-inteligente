@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#1f7a4c" />
   <meta name="description" content="Descubra o que cozinhar com o que você já tem em casa. Zero desperdício." />
   <title>Tem em Casa? — Cozinha Inteligente</title>
@@ -35,13 +35,13 @@
   </header>
 
   <main class="container">
-    <section class="card input-card">
+    <section class="card input-card" aria-labelledby="input-title">
       <div class="card-eyebrow">Comece por aqui</div>
-      <h2>O que tem na geladeira?</h2>
+      <h2 id="input-title">O que tem na geladeira?</h2>
       <p class="hint">Digite ou toque nas sugestões. Separe por vírgula ou Enter.</p>
 
       <div class="tags-input" id="tagsInput">
-        <input type="text" id="ingredientField" placeholder="ex: ovo, tomate, queijo…" autocomplete="off" />
+        <input type="text" id="ingredientField" aria-label="Ingredientes disponíveis" placeholder="ex: ovo, tomate, queijo…" autocomplete="off" />
       </div>
       <div class="suggestions" id="suggestions" role="list" aria-label="Sugestões de ingredientes"></div>
 
@@ -54,7 +54,7 @@
           Foto da geladeira
           <input type="file" id="photoInput" accept="image/*" capture="environment" hidden />
         </label>
-        <span class="photo-note" id="photoNote"></span>
+        <span class="photo-note" id="photoNote" aria-live="polite"></span>
       </div>
 
       <details class="advanced">
@@ -64,17 +64,25 @@
         </summary>
         <div class="advanced-body">
           <label class="field-label" for="vencendoField">Ingredientes vencendo (priorize receitas que os usem)</label>
-          <input type="text" id="vencendoField" placeholder="ex: leite, banana" />
+          <input type="text" id="vencendoField" placeholder="ex: leite, banana" autocomplete="off" />
 
-          <span class="field-label">Dietas</span>
-          <div class="chips" id="dietChips">
-            <button type="button" class="chip" data-dieta="sem lactose">Sem lactose</button>
-            <button type="button" class="chip" data-dieta="vegano">Vegano</button>
-            <button type="button" class="chip" data-dieta="low carb">Low carb</button>
-            <button type="button" class="chip" data-dieta="sem gluten">Sem glúten</button>
-            <button type="button" class="chip" data-dieta="proteico">Proteico</button>
-            <button type="button" class="chip" data-dieta="economico">Econômico</button>
-            <button type="button" class="chip" data-dieta="vegetariano">Vegetariano</button>
+          <span class="field-label" id="diet-label">Dietas</span>
+          <div class="chips" id="dietChips" role="group" aria-labelledby="diet-label">
+            <button type="button" class="chip" data-dieta="sem lactose" aria-pressed="false">Sem lactose</button>
+            <button type="button" class="chip" data-dieta="vegano" aria-pressed="false">Vegano</button>
+            <button type="button" class="chip" data-dieta="low carb" aria-pressed="false">Low carb</button>
+            <button type="button" class="chip" data-dieta="sem gluten" aria-pressed="false">Sem glúten</button>
+            <button type="button" class="chip" data-dieta="proteico" aria-pressed="false">Proteico</button>
+            <button type="button" class="chip" data-dieta="economico" aria-pressed="false">Econômico</button>
+            <button type="button" class="chip" data-dieta="vegetariano" aria-pressed="false">Vegetariano</button>
+          </div>
+
+          <span class="field-label" id="difficulty-label">Dificuldade</span>
+          <div class="chips" id="difficultyChips" role="group" aria-labelledby="difficulty-label">
+            <button type="button" class="chip" data-dificuldade="muito facil" aria-pressed="false">Muito fácil</button>
+            <button type="button" class="chip" data-dificuldade="facil" aria-pressed="false">Fácil</button>
+            <button type="button" class="chip" data-dificuldade="media" aria-pressed="false">Média</button>
+            <button type="button" class="chip" data-dificuldade="chef" aria-pressed="false">Chef</button>
           </div>
 
           <label class="toggle">
@@ -90,12 +98,12 @@
         <span class="btn-spinner" aria-hidden="true"></span>
       </button>
 
-      <button type="button" class="secondary-btn" id="copiarLista" style="margin-top: 0.5rem;">
+      <button type="button" class="secondary-btn" id="copiarLista" style="margin-top: 0.5rem;" hidden>
         Copiar lista de compras
       </button>
     </section>
 
-    <section id="resultados" class="resultados" aria-live="polite"></section>
+    <section id="resultados" class="resultados" aria-live="polite" aria-label="Receitas encontradas"></section>
   </main>
 
   <footer class="footer">
