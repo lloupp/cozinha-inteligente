@@ -1,21 +1,26 @@
 // Tem em Casa? — Cozinha Inteligente
-// Lógica do frontend: tags de ingredientes, filtros, foto (stub), chamada à API.
+// Lógica do frontend: ingredientes, filtros, persistência e chamada à API.
 
 const state = {
   ingredientes: [],
   dietas: [],
+  dificuldades: [],
   soTenho: false,
   vencendo: [],
-  preferencias: [],
   resultadosAnteriores: [],
 };
 
 const RING_C = 150.8;
-
+const STORAGE_KEY = "pref-ingredientes";
 const $ = (id) => document.getElementById(id);
 
 function normalizar(s) {
-  return s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+  return String(s || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
 }
 
 function escapeHtml(str) {
@@ -23,7 +28,8 @@ function escapeHtml(str) {
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
     .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 }
 
 function compatRingSVG(pct) {
@@ -43,22 +49,22 @@ function compatRingSVG(pct) {
 function animateRings(root) {
   requestAnimationFrame(() => {
     root.querySelectorAll(".compat-ring__fill").forEach((el) => {
-      const offset = el.getAttribute("data-offset");
-      el.style.strokeDashoffset = offset;
+      el.style.strokeDashoffset = el.getAttribute("data-offset");
     });
   });
 }
 
 function renderTags() {
   const box = $("tagsInput");
-  box.querySelectorAll(".tag").forEach((t) => t.remove());
   const input = $("ingredientField");
-  state.ingredientes.forEach((ing, i) => {
+  box.querySelectorAll(".tag").forEach((tag) => tag.remove());
+
+  state.ingredientes.forEach((ing, index) => {
     const tag = document.createElement("span");
     tag.className = "tag";
     tag.innerHTML = `${escapeHtml(ing)} <button type="button" aria-label="Remover ${escapeHtml(ing)}">×</button>`;
     tag.querySelector("button").addEventListener("click", () => {
-      state.ingredientes.splice(i, 1);
+      state.ingredientes.splice(index, 1);
       renderTags();
       renderSugestoes();
     });
@@ -66,10 +72,10 @@ function renderTags() {
   });
 }
 
-function addIngrediente(val) {
-  const v = normalizar(val);
-  if (v && !state.ingredientes.includes(v)) {
-    state.ingredientes.push(v);
+function addIngrediente(value) {
+  const ingrediente = normalizar(value);
+  if (ingrediente && !state.ingredientes.includes(ingrediente)) {
+    state.ingredientes.push(ingrediente);
     renderTags();
   }
 }
@@ -79,111 +85,104 @@ let sugeridosDeAPI = [];
 async function carregarSugestoes() {
   try {
     const res = await fetch("/api/ingredientes-sugeridos");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
     sugeridosDeAPI = await res.json();
-  } catch (e) {
+  } catch (_error) {
     sugeridosDeAPI = [];
   }
 }
 
-async function renderSugestoes() {
+function renderSugestoes() {
   const box = $("suggestions");
   box.innerHTML = "";
   const usados = new Set(state.ingredientes);
-  const sugeridos = sugeridosDeAPI.filter((s) => !usados.has(s)).slice(0, 12);
-  sugeridos.forEach((s) => {
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = "sug";
-    b.textContent = s;
-    b.setAttribute("role", "listitem");
-    b.addEventListener("click", () => {
-      addIngrediente(s);
-      renderSugestoes();
+
+  sugeridosDeAPI
+    .filter((s) => !usados.has(normalizar(s)))
+    .slice(0, 12)
+    .forEach((s) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "sug";
+      btn.textContent = s;
+      btn.setAttribute("role", "listitem");
+      btn.addEventListener("click", () => {
+        addIngrediente(s);
+        renderSugestoes();
+      });
+      box.appendChild(btn);
     });
-    box.appendChild(b);
-  });
 }
 
 function dificuldadeLabel(d) {
   const map = {
     "muito facil": "Muito fácil",
-    "facil": "Fácil",
-    "media": "Média",
-    "chef": "Chef",
+    facil: "Fácil",
+    media: "Média",
+    chef: "Chef",
   };
   return map[d] || d;
 }
 
 function dificuldadeClass(d) {
-  return "dif-" + String(d || "").replace(/\s+/g, "-");
+  return `dif-${String(d || "").replace(/\s+/g, "-")}`;
 }
 
 function stateMsg(kind, title, body) {
-  const icon =
-    kind === "error"
-      ? `<div class="state-msg__icon state-msg__icon--error" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
-            <circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/>
-          </svg>
-        </div>`
-      : `<div class="state-msg__icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 11h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8z"/>
-            <path d="M4 11l2-6h12l2 6"/>
-            <path d="M9 15h6"/>
-          </svg>
-        </div>`;
-  return `<div class="state-msg">${icon}<h3>${title}</h3><p>${body}</p></div>`;
+  const icon = kind === "error"
+    ? `<div class="state-msg__icon state-msg__icon--error" aria-hidden="true">
+         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+           <circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/>
+         </svg>
+       </div>`
+    : `<div class="state-msg__icon" aria-hidden="true">
+         <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+           <path d="M4 11h16v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8z"/>
+           <path d="M4 11l2-6h12l2 6"/><path d="M9 15h6"/>
+         </svg>
+       </div>`;
+  return `<div class="state-msg">${icon}<h3>${escapeHtml(title)}</h3><p>${escapeHtml(body)}</p></div>`;
 }
 
 function renderResultados(data) {
   state.resultadosAnteriores = data.receitas || [];
-
   const box = $("resultados");
+  const copyBtn = $("copiarLista");
   box.innerHTML = "";
 
-  if (!data.receitas || !data.receitas.length) {
+  if (!state.resultadosAnteriores.length) {
+    copyBtn.hidden = true;
     box.innerHTML = stateMsg(
       "empty",
       "Nada encaixou ainda",
-      "Tente mais um ingrediente ou solte os filtros. A geladeira ainda tem o que contar."
+      "Tente mais um ingrediente ou solte os filtros."
     );
     return;
   }
 
   const header = document.createElement("div");
   header.className = "results-header";
-  const n = data.receitas.length;
-  header.innerHTML = `
-    <h2>O que dá pra fazer</h2>
-    <span class="count">${n} receita${n === 1 ? "" : "s"}</span>
-  `;
+  const total = state.resultadosAnteriores.length;
+  header.innerHTML = `<h2>O que dá pra fazer</h2><span class="count">${total} receita${total === 1 ? "" : "s"}</span>`;
   box.appendChild(header);
 
-  data.receitas.forEach((r, idx) => {
+  state.resultadosAnteriores.forEach((r, idx) => {
     const el = document.createElement("article");
     const completo = r.compatibilidade >= 100;
     const urgente = r.urgencia > 0;
-    el.className =
-      "recipe" +
-      (urgente ? " recipe--urgente" : "") +
-      (completo ? " recipe--completo" : "");
+    el.className = `recipe${urgente ? " recipe--urgente" : ""}${completo ? " recipe--completo" : ""}`;
     el.style.animationDelay = `${Math.min(idx, 12) * 0.05}s`;
-    el.setAttribute("data-compat", r.compatibilidade);
-    el.setAttribute("data-descricao", escapeHtml(r.nome + " - " + r.modo));
 
     const tem = r.tem.length ? r.tem.map(escapeHtml).join(", ") : "—";
     const falta = r.falta.length ? r.falta.map(escapeHtml).join(", ") : "nenhum";
-    const custoHtml =
-      r.custo_falta > 0
-        ? `~R$ ${r.custo_falta.toFixed(2)} a mais`
-        : "Você tem tudo · R$ 0";
+    const custo = r.custo_falta > 0
+      ? `~R$ ${Number(r.custo_falta).toFixed(2)} a mais`
+      : "Você tem tudo · R$ 0";
     const badges = (r.dietas || [])
       .map((d) => `<span class="badge">${escapeHtml(d)}</span>`)
       .join("");
-    const urg = urgente
-      ? `<span class="badge urgencia">Use antes de vencer</span>`
-      : "";
+    const urgencia = urgente ? `<span class="badge urgencia">Use antes de vencer</span>` : "";
+    const tempo = Number.isFinite(Number(r.tempo_min)) ? `${r.tempo_min} min` : "Tempo não informado";
 
     el.innerHTML = `
       <header class="recipe__head">
@@ -193,7 +192,7 @@ function renderResultados(data) {
             <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>
             </svg>
-            ${r.tempo_min} min
+            ${escapeHtml(tempo)}
           </p>
         </div>
         <div class="compat-ring" aria-label="${r.compatibilidade}% compatível">
@@ -201,77 +200,130 @@ function renderResultados(data) {
         </div>
       </header>
       <div class="badges">
-        <span class="badge ${dificuldadeClass(r.dificuldade)}">${dificuldadeLabel(r.dificuldade)}</span>
-        ${badges}${urg}
+        <span class="badge ${dificuldadeClass(r.dificuldade)}">${escapeHtml(dificuldadeLabel(r.dificuldade))}</span>
+        ${badges}${urgencia}
       </div>
       <div class="recipe__lists">
         <p class="recipe__tem"><span class="label">Tem</span> <span><b>${tem}</b></span></p>
         <p class="recipe__falta"><span class="label">Falta</span> <span><b>${falta}</b></span></p>
-        <p class="recipe__custo ${r.custo_falta === 0 ? "zero" : ""}"><span class="label">Custo</span> <span><b>${custoHtml}</b></span></p>
+        <p class="recipe__custo ${r.custo_falta === 0 ? "zero" : ""}"><span class="label">Custo</span> <span><b>${escapeHtml(custo)}</b></span></p>
       </div>
-      <div class="recipe__modo">
+      <details class="recipe__modo">
         <summary class="modo-summary">Modo de preparo</summary>
         <p class="modo-detail">${escapeHtml(r.modo)}</p>
-      </div>
+      </details>
     `;
     box.appendChild(el);
   });
 
+  copyBtn.hidden = false;
   animateRings(box);
-  rendererizarBotaoCopiar();
 }
 
-function rendererizarBotaoCopiar() {
-  const btn = $("copiarLista");
-  if (!btn) return;
+async function copyText(texto) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(texto);
+    return;
+  }
+  const area = document.createElement("textarea");
+  area.value = texto;
+  area.setAttribute("readonly", "");
+  area.style.position = "fixed";
+  area.style.opacity = "0";
+  document.body.appendChild(area);
+  area.select();
+  document.execCommand("copy");
+  area.remove();
+}
 
-  btn.onclick = () => {
-    const todosFaltam = new Set();
-    state.resultadosAnteriores.forEach((r) => {
-      r.falta.forEach((i) => todosFaltam.add(i));
+function initCopyButton() {
+  const btn = $("copiarLista");
+  btn.addEventListener("click", async () => {
+    const faltantes = new Set();
+    state.resultadosAnteriores.slice(0, 10).forEach((r) => {
+      (r.falta || []).forEach((item) => faltantes.add(item));
     });
 
-    if (todosFaltam.size === 0) {
+    if (!faltantes.size) {
       btn.textContent = "Você tem tudo!";
-      btn.disabled = true;
+      setTimeout(() => { btn.textContent = "Copiar lista de compras"; }, 1800);
       return;
     }
 
-    const texto = `Lista de compras:
-${Array.from(todosFaltam).sort().map((i) => `- ${i}`).join("\n")}`;
-
-    navigator.clipboard.writeText(texto).then(() => {
-      const original = btn.textContent;
+    const texto = `Lista de compras:\n${Array.from(faltantes).sort().map((item) => `- ${item}`).join("\n")}`;
+    try {
+      await copyText(texto);
       btn.textContent = "Copiado!";
-      btn.disabled = true;
-      setTimeout(() => {
-        btn.textContent = original;
-        btn.disabled = false;
-      }, 2000);
-    });
-  };
+    } catch (_error) {
+      btn.textContent = "Não foi possível copiar";
+    }
+    setTimeout(() => { btn.textContent = "Copiar lista de compras"; }, 1800);
+  });
 }
 
-async function carregarPreferencias() {
-  const favores = localStorage.getItem("pref-ingredientes");
-  if (favores) {
-    const dados = JSON.parse(favores);
-    state.ingredientes = dados.ingredientes || [];
-    state.soTenho = dados.soTenho || false;
-    renderTags();
+function initFilterChips(containerId, attribute, stateKey) {
+  const container = $(containerId);
+  if (!container) return;
+
+  container.querySelectorAll(`[${attribute}]`).forEach((btn) => {
+    const value = normalizar(btn.getAttribute(attribute));
+    const sync = () => {
+      const active = state[stateKey].includes(value);
+      btn.classList.toggle("active", active);
+      btn.setAttribute("aria-pressed", String(active));
+    };
+
+    sync();
+    btn.addEventListener("click", () => {
+      if (state[stateKey].includes(value)) {
+        state[stateKey] = state[stateKey].filter((item) => item !== value);
+      } else {
+        state[stateKey] = [...state[stateKey], value];
+      }
+      sync();
+    });
+  });
+}
+
+function carregarPreferencias() {
+  const raw = localStorage.getItem(STORAGE_KEY);
+  if (!raw) return;
+
+  try {
+    const dados = JSON.parse(raw);
+    state.ingredientes = Array.isArray(dados.ingredientes) ? dados.ingredientes.map(normalizar).filter(Boolean) : [];
+    state.dietas = Array.isArray(dados.dietas) ? dados.dietas.map(normalizar).filter(Boolean) : [];
+    state.dificuldades = Array.isArray(dados.dificuldades) ? dados.dificuldades.map(normalizar).filter(Boolean) : [];
+    state.vencendo = Array.isArray(dados.vencendo) ? dados.vencendo.map(normalizar).filter(Boolean) : [];
+    state.soTenho = Boolean(dados.soTenho);
+  } catch (_error) {
+    localStorage.removeItem(STORAGE_KEY);
   }
 }
 
-async function salvarPreferencias() {
-  const dados = {
+function salvarPreferencias() {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify({
     ingredientes: state.ingredientes,
+    dietas: state.dietas,
+    dificuldades: state.dificuldades,
+    vencendo: state.vencendo,
     soTenho: state.soTenho,
-  };
-  localStorage.setItem("pref-ingredientes", JSON.stringify(dados));
+  }));
+}
+
+function parseInputField() {
+  const input = $("ingredientField");
+  if (!input.value.trim()) return;
+  input.value.split(",").forEach((part) => addIngrediente(part));
+  input.value = "";
+  renderSugestoes();
 }
 
 async function buscar() {
   parseInputField();
+  state.vencendo = $("vencendoField").value.split(",").map(normalizar).filter(Boolean);
+  state.soTenho = $("soTenho").checked;
+
   const btn = $("buscarBtn");
   btn.disabled = true;
   btn.classList.add("loading");
@@ -282,19 +334,21 @@ async function buscar() {
   if (state.soTenho) params.set("sotenho", "true");
   if (state.vencendo.length) params.set("vencendo", state.vencendo.join(","));
   if (state.dietas.length) params.set("dietas", state.dietas.join(","));
+  if (state.dificuldades.length) params.set("dificuldade", state.dificuldades.join(","));
 
   try {
     const res = await fetch(`/api/receitas?${params.toString()}`);
-    if (!res.ok) throw new Error("HTTP " + res.status);
     const data = await res.json();
+    if (!res.ok) throw new Error(data.erro || `HTTP ${res.status}`);
     renderResultados(data);
+    salvarPreferencias();
     $("resultados").scrollIntoView({ behavior: "smooth", block: "start" });
-    await salvarPreferencias();
-  } catch (e) {
+  } catch (_error) {
+    $("copiarLista").hidden = true;
     $("resultados").innerHTML = stateMsg(
       "error",
       "Não deu pra buscar agora",
-      "Verifique a conexão e tente de novo em instantes."
+      "Verifique a conexão e tente novamente."
     );
   } finally {
     btn.disabled = false;
@@ -303,103 +357,46 @@ async function buscar() {
   }
 }
 
-function parseInputField() {
-  const raw = $("ingredientField").value;
-  if (raw.trim()) {
-    raw.split(",").forEach((s) => addIngrediente(s.trim()));
-    $("ingredientField").value = "";
-    renderSugestoes();
-  }
-}
-
-function initDietaChips() {
-  const chipsDiv = $("dietChips");
-  if (!chipsDiv) return;
-
-  const dietaLabels = {
-    "vegano": "Vegano",
-    "sem lactose": "Sem lactose",
-    "low carb": "Low carb",
-    "sem gluten": "Sem glúten",
-    "proteico": "Proteico",
-    "economico": "Econômico",
-    "vegetariano": "Vegetariano",
-  };
-
-  const currentDiets = new Set(state.dietas);
-
-  Object.entries(dietaLabels).forEach(([value, label]) => {
-    const existing = chipsDiv.querySelector(`[data-dieta="${value}"]`);
-    if (!existing) {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "chip";
-      btn.setAttribute("data-dieta", value);
-      btn.textContent = label;
-      btn.addEventListener("click", () => {
-        const isActive = currentDiets.has(value);
-        if (isActive) {
-          currentDiets.delete(value);
-          btn.classList.remove("active");
-        } else {
-          currentDiets.add(value);
-          btn.classList.add("active");
-        }
-        btn.setAttribute("aria-pressed", btn.classList.contains("active"));
-        state.dietas = Array.from(currentDiets);
-      });
-      chipsDiv.appendChild(btn);
+function bindEvents() {
+  $("ingredientField").addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === ",") {
+      event.preventDefault();
+      addIngrediente(event.target.value);
+      event.target.value = "";
+      renderSugestoes();
     }
   });
 
-  state.dietas.forEach((d) => {
-    const chip = chipsDiv.querySelector(`[data-dieta="${d}"]`);
-    if (chip) {
-      chip.classList.add("active");
-      chip.setAttribute("aria-pressed", "true");
-    }
+  $("buscarBtn").addEventListener("click", buscar);
+  $("soTenho").addEventListener("change", (event) => {
+    state.soTenho = event.target.checked;
+  });
+  $("vencendoField").addEventListener("change", (event) => {
+    state.vencendo = event.target.value.split(",").map(normalizar).filter(Boolean);
+  });
+  $("photoInput").addEventListener("change", (event) => {
+    const file = event.target.files[0];
+    $("photoNote").textContent = file
+      ? "Foto recebida. A detecção automática por imagem ainda não está ativa nesta versão."
+      : "";
   });
 }
-
-$("ingredientField").addEventListener("keydown", (e) => {
-  if (e.key === "Enter" || e.key === ",") {
-    e.preventDefault();
-    addIngrediente(e.target.value);
-    e.target.value = "";
-    renderSugestoes();
-  }
-});
-
-$("buscarBtn").addEventListener("click", buscar);
-
-$("soTenho").addEventListener("change", (e) => {
-  state.soTenho = e.target.checked;
-});
-
-$("vencendoField").addEventListener("change", (e) => {
-  state.vencendo = e.target.value.split(",").map(normalizar).filter(Boolean);
-});
-
-$("photoInput").addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (!file) return;
-  $("photoNote").textContent = "Analisando imagem…";
-  setTimeout(() => {
-    const detectados = ["ovo", "tomate", "queijo", "cebola", "arroz"];
-    detectados.forEach(addIngrediente);
-    $("photoNote").textContent = `Detectado: ${detectados.join(", ")}`;
-    renderSugestoes();
-  }, 800);
-});
 
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("/sw.js").catch(() => {});
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  });
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
+  carregarPreferencias();
+  $("soTenho").checked = state.soTenho;
+  $("vencendoField").value = state.vencendo.join(", ");
+  initFilterChips("dietChips", "data-dieta", "dietas");
+  initFilterChips("difficultyChips", "data-dificuldade", "dificuldades");
+  initCopyButton();
+  bindEvents();
   await carregarSugestoes();
-  await carregarPreferencias();
-  initDietaChips();
   renderTags();
   renderSugestoes();
 });
