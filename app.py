@@ -54,9 +54,14 @@ app = Flask(__name__, static_folder="static")
 db = IngredientesDatabase(CUSTO_INGREDIENTE)
 
 
+_RECEITAS_CACHE = None
+
 def carregar_receitas():
-    with open(RECEITAS_PATH, "r", encoding="utf-8") as f:
-        return json.load(f)["receitas"]
+    global _RECEITAS_CACHE
+    if _RECEITAS_CACHE is None:
+        with open(RECEITAS_PATH, "r", encoding="utf-8") as f:
+            _RECEITAS_CACHE = json.load(f)["receitas"]
+    return _RECEITAS_CACHE
 
 
 @app.route("/")
@@ -97,6 +102,19 @@ def api_receitas():
     vencendo = [normalize(x) for x in request.args.get("vencendo", "").split(",") if x.strip()]
     dietas = [normalize(x) for x in request.args.get("dietas", "").split(",") if x.strip()]
 
+    dietas_invalidas = [d for d in dietas if d not in DIETAS_VALIDAS]
+    if dietas_invalidas:
+        return jsonify({"erro": f"Dietas inválidas: {', '.join(dietas_invalidas)}", "dietas_validas": sorted(DIETAS_VALIDAS)}), 400
+
+    try:
+        limite = max(1, min(int(request.args.get("limite", 30)), 100))
+    except ValueError:
+        limite = 30
+    try:
+        offset = max(0, int(request.args.get("offset", 0)))
+    except ValueError:
+        offset = 0
+
     receitas = carregar_receitas()
     resultados = []
     for rec in receitas:
@@ -105,11 +123,16 @@ def api_receitas():
             resultados.append(r)
 
     resultados.sort(key=lambda x: (x["score"], x["compatibilidade"]), reverse=True)
+    total = len(resultados)
+    pagina = resultados[offset:offset + limite]
 
     return jsonify({
-        "total": len(resultados),
+        "total": total,
+        "offset": offset,
+        "limite": limite,
+        "tem_mais": offset + limite < total,
         "ingredientes": ingredientes,
-        "receitas": resultados,
+        "receitas": pagina,
     })
 
 

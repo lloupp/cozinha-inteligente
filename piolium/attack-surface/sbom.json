@@ -1,0 +1,107 @@
+{
+  "project": "cozinha-inteligente",
+  "description": "Tem em Casa? — PWA que sugere receitas a partir dos ingredientes em casa",
+  "generated_at": "2026-08-17T23:53:44Z",
+  "components": [
+    {
+      "id": "runtime-python",
+      "category": "runtime",
+      "name": "Python",
+      "version": "3.12 (CI target) / 3.11.15 (venv local)",
+      "context": "server-side (backend Flask + engine matching)"
+    },
+    {
+      "id": "framework-flask",
+      "category": "framework",
+      "name": "Flask",
+      "version": "3.1.3",
+      "context": "server-side web framework; expõe API /api/* e serve arquivos estáticos",
+      "dependencies": ["werkzeug-3.1.8", "jinja2", "click", "itsdangerous", "markupsafe", "blinker"]
+    },
+    {
+      "id": "server-wsgi",
+      "category": "runtime",
+      "name": "gunicorn",
+      "version": "26.0.0",
+      "context": "WSGI HTTP server (produção via Docker CMD); depende de 'packaging'",
+      "dependencies": ["packaging"]
+    },
+    {
+      "id": "werkzeug-deps",
+      "category": "library",
+      "name": "Werkzeug",
+      "version": "3.1.8",
+      "context": "WSGI utility library empacotado com Flask; contém o WSGI server de dev e utilitários de request/response"
+    },
+    {
+      "id": "data-receitas",
+      "category": "data",
+      "name": "receitas.json",
+      "version": "local (150 receitas)",
+      "context": "dataset estático de receitas carregado por app.py via json.load"
+    },
+    {
+      "id": "frontend-static",
+      "category": "frontend",
+      "name": "Vanilla HTML/CSS/JS",
+      "version": "local",
+      "context": "index.html, style.css, app.js, manifest.json, sw.js, icon.svg — PWA sem dependências npm"
+    },
+    {
+      "id": "ci-gha",
+      "category": "build/CI",
+      "name": "GitHub Actions CI",
+      "version": ".github/workflows/ci.yml",
+      "context": "actions/checkout@v4, actions/setup-python@v5 (3.12), pytest -v",
+      "dependencies": []
+    },
+    {
+      "id": "container-docker",
+      "category": "container",
+      "name": "Docker",
+      "version": "python:3.12-slim base",
+      "context": "multi-stage build simples; CMD gunicorn --bind 0.0.0.0:5000 --workers 2 app:app"
+    },
+    {
+      "id": "dev-pytest",
+      "category": "test",
+      "name": "pytest / pytest-cov",
+      "version": ">=8.0 / >=4.0",
+      "context": "somente desenvolvimento; não afeta runtime"
+    },
+    {
+      "id": "audit-tools",
+      "category": "tooling",
+      "name": "bandit / pip-audit / semgrep",
+      "version": "1.9.4 / 2.10.1 / 1.173.0",
+      "context": "ferramentas de auditoria usadas nesta run (dev-only)"
+    }
+  ],
+  "security_relevant": [
+    {
+      "id": "framework-flask",
+      "rationale": "framework web expõe toda a superfície HTTP; ponto de entrada principal de atacantes."
+    },
+    {
+      "id": "server-wsgi",
+      "rationale": "gunicorn expõe a porta 5000 na internet via Docker (-p 5000:5000)."
+    },
+    {
+      "id": "werkzeug-deps",
+      "rationale": "Werkzeug contém HTTP parsing, dev server e utilitários usados por Flask."
+    },
+    {
+      "id": "runtime-python",
+      "rationale": "runtime que executa engine.py (matching) e app.py (parsing de query params)."
+    },
+    {
+      "id": "data-receitas",
+      "rationale": "leitura de arquivo local; path fixo (não user-controlled)."
+    }
+  ],
+  "advisory_scan": {
+    "tool": "pip-audit 2.10.1 (OSV + GitHub Advisory DB)",
+    "result": "No known vulnerabilities found",
+    "scope": "Flask, Werkzeug, gunicorn e dependências transitivas"
+  }
+}

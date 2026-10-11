@@ -74,3 +74,24 @@ class TestAPIs:
         recs = data["receitas"]
         for r in recs:
             assert "vegano" in r["dietas"]
+
+    def test_paginacao(self, client):
+        resp = client.get("/api/receitas?ingredientes=&limite=10")
+        assert resp.status_code == 200
+        data = json.loads(resp.data)
+        assert len(data["receitas"]) == 10
+        assert data["total"] > 10
+        assert data["tem_mais"] is True
+        resp2 = client.get("/api/receitas?ingredientes=&limite=10&offset=10")
+        data2 = json.loads(resp2.data)
+        assert data2["offset"] == 10
+
+    def test_dieta_invalida(self, client):
+        resp = client.get("/api/receitas?ingredientes=ovo&dietas=keto")
+        assert resp.status_code == 400
+        data = json.loads(resp.data)
+        assert "erro" in data
+
+    def test_limite_invalido_usa_default(self, client):
+        resp = client.get("/api/receitas?ingredientes=ovo&limite=abc")
+        assert resp.status_code == 200

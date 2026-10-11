@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
   <div class="atmosphere" aria-hidden="true"></div>
@@ -35,7 +35,12 @@
   </header>
 
   <main class="container">
-    <section class="card input-card">
+    <nav class="tabs" role="tablist" aria-label="Navegação principal">
+      <button type="button" class="tab tab--active" id="tabBuscar" role="tab" aria-selected="true" aria-controls="buscarCard">Buscar Receitas</button>
+      <button type="button" class="tab" id="tabGeladeira" role="tab" aria-selected="false" aria-controls="geladeiraCard">Minha Geladeira</button>
+    </nav>
+
+    <section class="card input-card" id="buscarCard" role="tabpanel" aria-labelledby="tabBuscar">
       <div class="card-eyebrow">Comece por aqui</div>
       <h2>O que tem na geladeira?</h2>
       <p class="hint">Digite ou toque nas sugestões. Separe por vírgula ou Enter.</p>
@@ -93,6 +98,30 @@
       <button type="button" class="secondary-btn" id="copiarLista" style="margin-top: 0.5rem;">
         Copiar lista de compras
       </button>
+
+      <p class="fridge-hint" id="fridgeHint" hidden>
+        Usando <span id="fridgeHintCount">0</span> itens da sua geladeira ·
+        <button type="button" class="linklike" id="fridgeHintLink">editar geladeira</button>
+      </p>
+    </section>
+
+    <section class="card fridge-card" id="geladeiraCard" role="tabpanel" aria-labelledby="tabGeladeira" hidden>
+      <div class="card-eyebrow">Seu estoque</div>
+      <h2>Minha Geladeira</h2>
+      <p class="hint">Salve o que você tem em casa. Itens vencendo em até 3 dias são priorizados nas receitas.</p>
+
+      <div class="fridge-add">
+        <input type="text" id="fridgeName" placeholder="ex: tomate, leite…" autocomplete="off" />
+        <input type="number" id="fridgeDias" placeholder="dias p/ vencer" min="0" max="365" inputmode="numeric" title="Vence em quantos dias? (opcional)" />
+        <button type="button" class="primary-btn primary-btn--slim" id="fridgeAddBtn">Adicionar</button>
+      </div>
+      <div class="suggestions" id="fridgeSuggestions" role="list" aria-label="Sugestões para adicionar à geladeira"></div>
+
+      <div class="fridge-header">
+        <span class="fridge-count" id="fridgeCount">0 itens na geladeira</span>
+        <button type="button" class="linklike" id="fridgeClearBtn" hidden>Esvaziar geladeira</button>
+      </div>
+      <div class="fridge-list" id="fridgeList" aria-live="polite"></div>
     </section>
 
     <section id="resultados" class="resultados" aria-live="polite"></section>
@@ -102,6 +131,6 @@
     <p>Tem em Casa? — reduza o desperdício e cozinhe com o que já possui.</p>
   </footer>
 
-  <script src="/static/app.js"></script>
+  <script src="/app.js"></script>
 </body>
 </html>

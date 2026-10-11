@@ -925,3 +925,224 @@ body {
     height: 56px;
   }
 }
+
+/* —— Abas (tabs) —— */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin: 18px 0 14px;
+  background: var(--card);
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--line);
+}
+
+.tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-family: var(--font-ui);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--slate);
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background 0.18s var(--ease), color 0.18s;
+}
+
+.tab:hover {
+  color: var(--herb-dark);
+}
+
+.tab--active {
+  background: linear-gradient(165deg, #259456 0%, var(--herb) 50%, var(--herb-dark) 100%);
+  color: #fff;
+  box-shadow: 0 4px 14px var(--herb-glow);
+}
+
+.tab:focus-visible {
+  outline: none;
+  box-shadow: var(--focus);
+}
+
+/* —— Minha Geladeira —— */
+.fridge-add {
+  display: grid;
+  grid-template-columns: 1fr 110px auto;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.fridge-add input {
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 11px 14px;
+  font-size: 0.95rem;
+  font-family: var(--font-ui);
+  background: #fbfdfc;
+  color: var(--ink);
+  min-width: 0;
+}
+
+.fridge-add input::placeholder {
+  color: #9aaca3;
+}
+
+.fridge-add input:focus {
+  outline: none;
+  border-color: var(--herb);
+  box-shadow: var(--focus);
+  background: #fff;
+}
+
+.primary-btn--slim {
+  width: auto;
+  margin-top: 0;
+  padding: 11px 20px;
+  font-size: 0.9rem;
+}
+
+.fridge-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 18px 0 10px;
+}
+
+.fridge-count {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--slate);
+}
+
+.linklike {
+  border: none;
+  background: none;
+  padding: 0;
+  font: inherit;
+  font-size: 0.85rem;
+  color: var(--herb);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.linklike:hover {
+  color: var(--herb-dark);
+}
+
+.fridge-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fridge-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fbfdfc;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}
+
+.fridge-item__nome {
+  font-weight: 600;
+  text-transform: capitalize;
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.validade {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--mist);
+  color: var(--slate);
+  white-space: nowrap;
+}
+
+.validade--ok {
+  background: var(--herb-soft);
+  color: var(--herb-dark);
+}
+
+.validade--logo {
+  background: var(--saffron-soft);
+  color: #8a5c00;
+}
+
+.validade--hoje {
+  background: var(--coral-soft);
+  color: var(--coral);
+}
+
+.fridge-item__remover {
+  border: none;
+  background: none;
+  color: var(--slate);
+  font-size: 1.15rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.fridge-item__remover:hover {
+  background: var(--coral-soft);
+  color: var(--coral);
+}
+
+.fridge-empty {
+  font-size: 0.92rem;
+  color: var(--slate);
+  background: var(--saffron-soft);
+  border: 1px dashed var(--saffron);
+  border-radius: var(--radius-sm);
+  padding: 14px 16px;
+}
+
+.fridge-hint {
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--slate);
+  text-align: center;
+}
+
+@media (max-width: 380px) {
+  .fridge-add {
+    grid-template-columns: 1fr auto;
+  }
+
+  .fridge-add input[type="number"] {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Botão "Carregar mais" (paginação) */
+.btn--more {
+  display: block;
+  margin: 20px auto;
+  padding: 12px 28px;
+  border: none;
+  border-radius: 999px;
+  background: var(--accent, #ff7043);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn--more:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}

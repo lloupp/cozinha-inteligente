@@ -39,13 +39,105 @@ def normalize(texto: str) -> str:
     return t
 
 
+def _tokens(texto: str) -> set:
+    return set(normalize(texto).split())
+
+
+# Palavras que NÃO são nome de ingrediente (quantidades, preparos).
+_STOPWORDS_NOME = {
+    # números/medidas
+    "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "1/2", "1/4", "3/4",
+    "xicara", "xicaras", "chavena", "copo", "copos",
+    "colher", "colheres", "colherinha", "colherinhas",
+    "sopa", "cha", "cafe",
+    "lata", "latas", "caixa", "caixas", "caixinha", "caixinhas",
+    "pacote", "pacotes", "embalagem", "sache", "saches",
+    "unidade", "unidades", "dente", "dentes", "ramo", "ramos",
+    "fatia", "fatias", "pedaco", "pedacos", "cubos", "cubo",
+    "ml", "l", "litro", "litros", "g", "kg", "grama", "gramas",
+    "kilo", "mg", "cc",
+    # preparo / qualidade
+    "picado", "picada", "picados", "picadas", "ralado", "ralada",
+    "fatiado", "fatiada", "cortado", "cortada", "derretido", "derretida",
+    "morno", "morna", "quente", "frio", "fria", "gelado", "gelada",
+    "opcional", "graus", "aproximadamente", "cerca", "temperatura",
+    "ambiente", "bem",
+    # preposições/conjunções
+    "de", "do", "da", "dos", "das", "e", "ou", "com", "sem", "para",
+    "a", "o", "as", "os", "ao", "aos", "no", "na", "em", "um", "uma",
+    "1/2", "1/3", "2/3",
+}
+
+# Tokens numéricos e frações — regex
+import re as _re
+_NUM_RE = _re.compile(r"^\d+([.,]\d+)?$|^[0-9]+/[0-9]+$")
+
+
+def nome_base_ingrediente(texto: str) -> str:
+    """Extrai o nome canônico de um ingrediente cru com quantidade/preparo.
+
+    Ex.: "1 caixinha de creme de leite (previamente gelado)" → "creme de leite"
+          "200 ml de leite quente" → "leite"
+          "alfavaca" (fresco) → "alfavaca"  (preserva nomes reais com 'fresco')
+    """
+    t = normalize(texto)
+    # remove parênteses e conteúdo interno
+    t = _re.sub(r"\([^)]*\)", " ", t)
+    # separa tokens
+    tokens = [tok.strip(".,;:?!\"'()[]") for tok in t.split()]
+    # filtra stopwords e números
+    limpos = [
+        tok for tok in tokens
+        if tok and tok not in _STOPWORDS_NOME and not _NUM_RE.match(tok)
+    ]
+    return " ".join(limpos)[:80]
+
+
+def _fuzzy_match(a: str, b: str) -> bool:
+    """Match inteligente entre dois nomes de ingredientes.
+
+    Regras (todas sobre texto normalizado), por segurança contra falsos
+    positivos:
+    - igualdade exata
+    - um nome contém o outro como substring, quando o menor tem >=4 chars
+      (evita 'sal' bater em 'salmao', mas pega 'peito de frango' ⊃ 'frango')
+    - interseção de tokens equivalentes (singular/plural/normalizados)
+    """
+    if not a or not b:
+        return False
+    if a == b:
+        return True
+    if len(a) >= 4 and a in b:
+        return True
+    if len(b) >= 4 and b in a:
+        return True
+    ta = {_singularizar(t) for t in _tokens(a)}
+    tb = {_singularizar(t) for t in _tokens(b)}
+    return bool(ta & tb)
+
+
+_DEF_PLURAIS = [
+    ("oes", "ao"), ("aes", "ao"), ("aos", "ao"),
+    ("eis", "el"), ("ois", "ol"),
+    ("ns", "m"), ("izes", "iz"), ("izes", "iz"),
+    ("res", "r"), ("s", ""),
+]
+
+
+def _singularizar(w: str) -> str:
+    """Redução aproximada de plural para singular (PT-BR simples)."""
+    if len(w) <= 2:
+        return w
+    for suf, sub in _DEF_PLURAIS:
+        if w.endswith(suf) and len(w) > len(suf):
+            return w[: -len(suf)] + sub
+    return w
+
+
 def esta_comprado(ing: str, possuidos_norm: List[str]) -> bool:
     """Verifica se o ingrediente está presente nos possuídos."""
     ing_norm = normalize(ing)
-    for p in possuidos_norm:
-        if ing_norm == p or ing_norm.startswith(p) or p.startswith(ing_norm):
-            return True
-    return False
+    return any(_fuzzy_match(ing_norm, p) for p in possuidos_norm)
 
 
 def calcular_receita(
@@ -60,9 +152,17 @@ def calcular_receita(
     Calcula a compatibilidade de uma receita com os ingredientes possuídos.
     Retorna dict com os detalhes ou None se incompatível.
     """
-    ingredientes = rec.get("ingredientes", [])
-    tem = [i for i in ingredientes if esta_comprado(i, possuidos_norm)]
-    falta = [i for i in ingredientes if not esta_comprado(i, possuidos_norm)]
+    ingredientes = rec.get("ingredientes") or []
+    if not ingredientes:
+        return None
+
+    # Mapeia cada ingrediente cru para seu nome canônico para matching/custo.
+    bases = [nome_base_ingrediente(i) for i in ingredientes]
+    tem_idx = [i for i, b in enumerate(bases) if b and esta_comprado(b, possuidos_norm)]
+    tem = [ingredientes[i] for i in tem_idx]
+    falta = [ingredientes[i] for i, b in enumerate(bases) if b and not esta_comprado(b, possuidos_norm)]
+    # ingrediente sem base extraível (degenerado) conta como faltando
+    falta += [ingredientes[i] for i, b in enumerate(bases) if not b]
 
     compat = round(100 * len(tem) / len(ingredientes)) if ingredientes else 0
 
@@ -76,24 +176,21 @@ def calcular_receita(
 
     custo_falta = 0.0
     if db:
-        custo_falta = sum(db.get_custo(i) for i in falta)
+        custo_falta = sum(db.get_custo(b) for i, b in enumerate(bases) if ingredientes[i] in falta)
     else:
         custo_falta = sum(DEFAULT_CUSTO for _ in falta)
 
     urgencia = 0
     if vencendo:
-        ven_norm = [normalize(v) for v in vencendo]
-        for i in ingredientes:
-            in_norm = normalize(i)
-            if any(
-                in_norm == v or in_norm.startswith(v) or v.startswith(in_norm)
-                for v in ven_norm
-            ):
+        for b in bases:
+            if not b:
+                continue
+            if any(_fuzzy_match(b, normalize(v)) for v in vencendo):
                 urgencia += 30
 
     return {
-        "id": rec["id"],
-        "nome": rec["nome"],
+        "id": rec.get("id"),
+        "nome": rec.get("nome") or "Receita sem nome",
         "compatibilidade": compat,
         "tem": tem,
         "falta": falta,
